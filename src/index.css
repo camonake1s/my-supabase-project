@@ -1,0 +1,291 @@
+/* ----------------------------------------------------------
+   PlayFul Paws — global styles + typography
+   Fonts (2 families, free): Inter (body/UI), Plus Jakarta Sans (headings)
+   ---------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-text: #1f1f1f;
+  --color-muted: #5a5a5a;
+  --color-bg: #faf6f0;
+  /* Vertical rhythm — one scale for all main sections */
+  --space-section-y: clamp(2.25rem, 5vw, 3rem);
+  --space-block: 1.25rem;
+  --space-tight: 0.75rem;
+  /* Sticky nav + wrapped row — keeps in-page targets visible below the bar */
+  --site-header-scroll-offset: clamp(5.25rem, 14vw, 7.5rem);
+}
+
+html {
+  scroll-padding-top: var(--site-header-scroll-offset);
+}
+
+/* Reinforce scroll margin for in-page nav (sticky header overlap) */
+.scroll-target-section {
+  scroll-margin-top: var(--site-header-scroll-offset);
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  background: var(--color-bg);
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* About section: two design images — side by side on tablet+, stacked on phone */
+.about-images-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2.25rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .about-images-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+/* Animal profile: requirements (left) + card+CTA (right), then questions full width */
+.animal-profile-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.animal-profile-top {
+  display: grid;
+  gap: 1.75rem;
+  align-items: start;
+  width: 100%;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .animal-profile-top {
+    grid-template-columns: minmax(300px, 340px) minmax(0, 1fr);
+  }
+}
+
+.animal-main-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-block);
+  min-width: 0;
+}
+
+.animal-side-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-block);
+  min-width: 0;
+}
+
+.animal-cta-after-card {
+  width: 100%;
+}
+
+.animal-questions-panel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.35rem 1.35rem 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* Inside animal card: meta (left) + story (right) on wide card */
+.animal-detail-grid {
+  display: grid;
+  gap: 1.35rem 1.75rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 540px) {
+  .animal-detail-grid {
+    grid-template-columns: minmax(140px, 200px) minmax(0, 1fr);
+  }
+}
+
+.animal-meta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.animal-meta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.animal-meta-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+}
+
+.animal-meta-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.animal-story-prose {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #3a3a3a;
+  white-space: pre-line;
+}
+
+/* Charity / QR row */
+.charity-strip {
+  background: #d6e8e4;
+  padding: var(--space-section-y) 0;
+  border-top: 1px solid rgba(26, 92, 82, 0.12);
+}
+
+.charity-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.charity-qr-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem 2rem;
+  flex-wrap: wrap;
+}
+
+.charity-qr-copy {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.charity-qr-copy h3 {
+  font-size: 1.2rem;
+  color: #134a42;
+  margin-bottom: 0.4rem;
+}
+
+.charity-qr-copy p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #2d4a44;
+  margin: 0.35rem 0 0;
+  max-width: 42rem;
+}
+
+.charity-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+/* Shared site footer */
+.site-footer {
+  text-align: center;
+  padding: var(--space-section-y) 1.25rem calc(var(--space-section-y) + 0.25rem);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--color-bg);
+  color: var(--color-muted);
+}
+
+.site-footer-line {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #4a4a4a;
+}
+
+.animal-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.animal-requirements-panel {
+  background: linear-gradient(165deg, #f4ebe0 0%, #ede4d8 100%);
+  border: 1px solid rgba(200, 119, 58, 0.45);
+  border-radius: 16px;
+  padding: 1.35rem 1.35rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(43, 39, 36, 0.06);
+}
+
+/* Wider readable content on home */
+.page-content-wide {
+  width: 100%;
+  max-width: min(1180px, calc(100vw - 3rem));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .page-content-wide {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
