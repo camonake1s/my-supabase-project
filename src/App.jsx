@@ -448,7 +448,7 @@ export default function App() {
 
         <div className="about-images-grid">
           <AboutDesignImage caption="Our team" imageSrc={ABOUT_TEAM_PHOTO} placeholderLabel="Team photo" />
-          <AboutDesignImage caption="Project mock-up" imageSrc={ABOUT_PROJECT_PHOTO} placeholderLabel="Project / mock-up" />
+          <AboutDesignImage caption="Concept poster of the project" imageSrc={ABOUT_PROJECT_PHOTO} placeholderLabel="Concept poster of the project" />
         </div>
 
         <p style={{ fontSize: '1rem', color: 'var(--color-muted)', marginTop: '2rem', textAlign: 'center' }}>
