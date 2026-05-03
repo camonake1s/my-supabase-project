@@ -19,6 +19,12 @@ const INVISIONU_URL = 'https://www.invisionu.education/'
 const ABOUT_TEAM_PHOTO = '/about/team-photo.jpg'
 const ABOUT_PROJECT_PHOTO = '/about/project-mockup.jpg'
 
+const HERO_IMAGE_URL = 'https://i.pinimg.com/736x/16/bd/d9/16bdd92a5093b8166b4b31f322536220.jpg'
+
+const NEWS_ARTICLE_URL =
+  'https://informburo.kz/stati/priiut-nadezdy-kak-bliz-almaty-spasaiut-tex-kogo-odnazdy-predali-liudi'
+const NEWS_ARTICLE_PHOTO = 'https://i.pinimg.com/736x/f6/dd/f9/f6ddf96b7c3c2d69903efeb25f7e590e.jpg'
+
 function statusLabel(s) {
   if (s === 'treatment') return { text: 'Under Treatment', bg: '#FFF3E0', color: '#E65100' }
   if (s === 'urgent') return { text: 'Needs Urgent Support', bg: '#FFEBEE', color: '#C62828' }
@@ -32,26 +38,18 @@ export default function App() {
   const aboutRef = useRef(null)
 
   const [animals, setAnimals] = useState([])
-  const [story, setStory] = useState(null)
   const [typeFilter, setTypeFilter] = useState('all')
   const [listLoaded, setListLoaded] = useState(false)
 
   useEffect(() => {
     let cancelled = false
     async function load() {
-      const [{ data: animalsData }, { data: storyData }] = await Promise.all([
-        supabase.from('animals').select('*').order('created_at', { ascending: false }),
-        supabase
-          .from('rescue_stories')
-          .select('*')
-          .eq('is_featured', true)
-          .order('created_at', { ascending: false })
-          .limit(1)
-          .maybeSingle()
-      ])
+      const { data: animalsData } = await supabase
+        .from('animals')
+        .select('*')
+        .order('created_at', { ascending: false })
       if (cancelled) return
       setAnimals(animalsData || [])
-      setStory(storyData || null)
       setListLoaded(true)
     }
     load()
@@ -119,48 +117,169 @@ export default function App() {
       </header>
 
       <section
-        className="page-content-wide"
         style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start',
-          paddingTop: 'var(--space-section-y)',
-          paddingBottom: 'var(--space-section-y)',
-          gap: 'clamp(1.5rem, 4vw, 2.5rem)',
-          flexWrap: 'wrap',
+          backgroundImage: `linear-gradient(rgba(15,12,10,0.6), rgba(15,12,10,0.35)), url('${HERO_IMAGE_URL}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
       >
-        <div style={{ flex: '1 1 min(100%, 380px)', maxWidth: '640px' }}>
-          <h1 style={{ fontSize: 'clamp(1.85rem, 4vw, 2.35rem)', color: DARK, lineHeight: 1.15 }}>
-            Comes Animal Shelter
-            <br />
-            <span style={{ color: ORANGE }}>(Kainar, 37.5 km from Almaty)</span>
-          </h1>
-          <p style={{ color: 'var(--color-muted)', marginTop: '1rem', fontSize: '1.08rem', maxWidth: '52ch' }}>
-            Rescuing abandoned animals for 17 years
-            <br />- Yulia Snigireva
-          </p>
-        </div>
-
-        <aside
+        <div
+          className="page-content-wide"
           style={{
-            background: '#FAF0E6',
-            border: `2px solid ${ORANGE}`,
-            borderRadius: '14px',
-            padding: '1.1rem 1.25rem',
-            minWidth: 'min(100%, 280px)',
-            maxWidth: '340px',
+            paddingTop: 'clamp(3rem, 9vw, 5.5rem)',
+            paddingBottom: 'clamp(3rem, 9vw, 5.5rem)',
           }}
         >
-          <div style={{ color: ORANGE, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.06em', marginBottom: '0.35rem' }}>
-            RESCUE STORY
+          <div style={{ maxWidth: '640px' }}>
+            <h1
+              style={{
+                fontSize: 'clamp(1.95rem, 4vw, 2.65rem)',
+                color: 'white',
+                lineHeight: 1.15,
+                textShadow: '0 1px 4px rgba(0,0,0,0.5)',
+              }}
+            >
+              Comes Animal Shelter
+              <br />
+              <span style={{ color: ORANGE, textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
+                (Kainar, 37.5 km from Almaty)
+              </span>
+            </h1>
+            <p
+              style={{
+                color: 'white',
+                marginTop: '1.1rem',
+                fontSize: '1.08rem',
+                fontWeight: 600,
+                lineHeight: 1.5,
+                maxWidth: '54ch',
+                textShadow: '0 1px 4px rgba(0,0,0,0.55)',
+              }}
+            >
+              📍 Located in Kainar village · Shelter “Hope” · Run by a dedicated team for 117+ animals
+            </p>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.92)',
+                marginTop: '0.85rem',
+                fontSize: '1rem',
+                maxWidth: '52ch',
+                textShadow: '0 1px 4px rgba(0,0,0,0.55)',
+              }}
+            >
+              Rescuing abandoned animals for 17 years
+              <br />- Yulia Snigireva
+            </p>
           </div>
-          <h2 style={{ fontSize: '1.1rem', color: DARK }}>{story?.title ?? 'Victoria - three surgeries'}</h2>
-          <p style={{ fontSize: '0.95rem', color: 'var(--color-muted)', marginTop: '0.5rem', lineHeight: 1.55 }}>
-            {story?.body ??
-              'A local resident poured a chemical solution on her. Thanks to your help, Victoria is finally healing.'}
-          </p>
-        </aside>
+        </div>
+      </section>
+
+      <section
+        className="page-content-wide"
+        style={{ paddingTop: 'var(--space-section-y)', paddingBottom: '0' }}
+      >
+        <article
+          style={{
+            background: 'white',
+            border: '1px solid rgba(0,0,0,0.06)',
+            borderRadius: '14px',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+            overflow: 'hidden',
+            maxWidth: '720px',
+            margin: '0 auto',
+          }}
+        >
+          <header
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              padding: '14px 18px',
+            }}
+          >
+            <div
+              aria-hidden
+              style={{
+                width: '44px',
+                height: '44px',
+                borderRadius: '50%',
+                background: '#1A5C52',
+                color: 'white',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 700,
+                fontSize: '1.15rem',
+                flexShrink: 0,
+              }}
+            >
+              📰
+            </div>
+            <div style={{ minWidth: 0 }}>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem', color: DARK }}>informburo.kz</div>
+              <div style={{ fontSize: '0.78rem', color: 'var(--color-muted)' }}>
+                News · Featured story
+              </div>
+            </div>
+          </header>
+
+          <div style={{ padding: '4px 18px 16px' }}>
+            <h3
+              style={{
+                fontSize: '1.18rem',
+                color: DARK,
+                lineHeight: 1.3,
+                marginBottom: '0.55rem',
+              }}
+            >
+              Shelter “Hope”: how near Almaty they rescue those once betrayed by people
+            </h3>
+            <p style={{ fontSize: '0.97rem', color: 'var(--color-muted)', lineHeight: 1.6 }}>
+              More than 400 dogs and cats are cared for at the Comes shelter in Almaty region.
+              Operating since 2018, it was founded by siblings Sergey and Yulia Snegirev, who give
+              every rescued animal rehabilitation, treatment, and a careful path to a new family.
+              Adopters are asked to send regular updates from the animal’s new home, so the shelter
+              knows each rescue is safe and loved.
+            </p>
+          </div>
+
+          <img
+            src={NEWS_ARTICLE_PHOTO}
+            alt="Rescued cat at the Comes shelter"
+            style={{
+              width: '100%',
+              height: 'clamp(220px, 38vw, 360px)',
+              objectFit: 'contain',
+              background: '#E8DCC8',
+              display: 'block',
+            }}
+          />
+
+          <footer
+            style={{
+              padding: '14px 18px',
+              borderTop: '1px solid rgba(0,0,0,0.06)',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              gap: '8px',
+            }}
+          >
+            <span style={{ fontSize: '0.85rem', color: 'var(--color-muted)' }}>
+              Source: informburo.kz
+            </span>
+            <a
+              href={NEWS_ARTICLE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: ORANGE, fontWeight: 600, fontSize: '0.95rem' }}
+            >
+              Read the full article →
+            </a>
+          </footer>
+        </article>
       </section>
 
       <section style={{ textAlign: 'center', padding: 'var(--space-section-y) clamp(1rem, 4vw, 2.5rem)' }}>

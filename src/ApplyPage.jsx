@@ -22,6 +22,7 @@ export default function ApplyPage() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [formBanner, setFormBanner] = useState(null)
+  const [fieldErrors, setFieldErrors] = useState({})
   const [form, setForm] = useState({
     full_name: '',
     visit_at: '',
@@ -42,6 +43,11 @@ export default function ApplyPage() {
   function update(field, value) {
     setForm(prev => ({ ...prev, [field]: value }))
     setFormBanner(null)
+    setFieldErrors(prev => {
+      if (!prev[field]) return prev
+      const { [field]: _removed, ...rest } = prev
+      return rest
+    })
   }
 
   function emailLooksValid(s) {
@@ -50,31 +56,66 @@ export default function ApplyPage() {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)
   }
 
-  async function handleSubmit() {
-    setFormBanner(null)
+  function validate() {
+    const errors = {}
     const name = form.full_name.trim()
     const phone = form.phone.trim()
-    if (name.length < 2 || phone.length < 5 || !form.consent_given || !emailLooksValid(form.email)) {
-      setFormBanner({ type: 'error', text: 'Please fill in all required fields correctly.' })
+    const email = form.email.trim()
+
+    if (!name) {
+      errors.full_name = 'Full name is missing.'
+    } else if (name.length < 2) {
+      errors.full_name = 'Full name is too short — please enter at least 2 characters.'
+    }
+
+    const phoneDigits = phone.replace(/\D/g, '')
+    if (!phone) {
+      errors.phone = 'Phone number is missing — the shelter needs it to contact you.'
+    } else if (phoneDigits.length < 7) {
+      errors.phone = 'Phone number looks too short — please include the country code, e.g. +7 ...'
+    }
+
+    if (email && !emailLooksValid(email)) {
+      errors.email = 'Email is invalid — please check the format (e.g. name@example.com) or leave it empty.'
+    }
+
+    if (!form.consent_given) {
+      errors.consent_given = 'Please tick the consent box so the shelter can contact you about this adoption.'
+    }
+
+    return errors
+  }
+
+  async function handleSubmit() {
+    setFormBanner(null)
+
+    const errors = validate()
+    setFieldErrors(errors)
+    if (Object.keys(errors).length > 0) {
+      const firstError = Object.values(errors)[0]
+      setFormBanner({
+        type: 'error',
+        text: `Please fix the highlighted field${Object.keys(errors).length > 1 ? 's' : ''}: ${firstError}`,
+      })
       return
     }
 
     setLoading(true)
     const { error } = await supabase.from('adoptions').insert({
       animal_id: Number(id),
-      full_name: name,
-      phone,
+      full_name: form.full_name.trim(),
+      phone: form.phone.trim(),
       email: form.email.trim() || null,
       visit_at: form.visit_at ? new Date(form.visit_at).toISOString() : null,
-      animal_experience: form.animal_experience || null,
-      living_environment: form.living_environment || null,
+      animal_experience: form.animal_experience.trim() || null,
+      living_environment: form.living_environment.trim() || null,
       consent_given: true
     })
     setLoading(false)
     if (error) {
       setFormBanner({
         type: 'error',
-        text: 'Something went wrong and we could not save your application. Please try again.',
+        text: `We could not save your application: ${error.message}. Please try again, or contact the shelter directly via WhatsApp.`,
       })
       return
     }
@@ -151,7 +192,7 @@ export default function ApplyPage() {
                     border: '1px solid #A5D6A7',
                   }}
                 >
-                  Your application has been submitted successfully.
+                  Your application has been sent. We’ll wait for you!
                 </div>
                 <div style={{ fontSize: '48px', marginBottom: '16px' }}>✅</div>
                 <h3 style={{ fontSize: '20px', color: DARK, marginBottom: '8px' }}>Thank you!</h3>
@@ -185,9 +226,9 @@ export default function ApplyPage() {
                 )}
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                  <Field label="Full Name *">
+                  <Field label="Full Name *" error={fieldErrors.full_name}>
                     <input
-                      style={inputStyle} placeholder="Your name"
+                      style={inputStyleFor(fieldErrors.full_name)} placeholder="Your name"
                       value={form.full_name}
                       onChange={e => update('full_name', e.target.value)}
                     />
@@ -201,17 +242,17 @@ export default function ApplyPage() {
                   </Field>
                 </div>
 
-                <Field label="Phone (WhatsApp) *">
+                <Field label="Phone (WhatsApp) *" error={fieldErrors.phone}>
                   <input
-                    style={inputStyle} placeholder="+7 ..."
+                    style={inputStyleFor(fieldErrors.phone)} placeholder="+7 ..."
                     value={form.phone}
                     onChange={e => update('phone', e.target.value)}
                   />
                 </Field>
 
-                <Field label="Email">
+                <Field label="Email" error={fieldErrors.email}>
                   <input
-                    style={inputStyle} placeholder="email@example.com"
+                    style={inputStyleFor(fieldErrors.email)} placeholder="email@example.com"
                     value={form.email}
                     onChange={e => update('email', e.target.value)}
                   />
@@ -233,22 +274,31 @@ export default function ApplyPage() {
                   />
                 </Field>
 
-                {/* Consent — required before submission */}
-                <label style={{
-                  display: 'flex', alignItems: 'flex-start', gap: '10px',
-                  background: '#FAF0E6', padding: '12px 14px', borderRadius: '8px',
-                  cursor: 'pointer', fontSize: '13px', color: '#555', lineHeight: 1.5
-                }}>
-                  <input
-                    type="checkbox" style={{ marginTop: '3px' }}
-                    checked={form.consent_given}
-                    onChange={e => update('consent_given', e.target.checked)}
-                  />
-                  <span>
-                    I agree to send my data to the “Comes” shelter team so they can contact me about
-                    this adoption request.
-                  </span>
-                </label>
+                {/* Consent - required before submission */}
+                <div>
+                  <label style={{
+                    display: 'flex', alignItems: 'flex-start', gap: '10px',
+                    background: '#FAF0E6',
+                    padding: '12px 14px', borderRadius: '8px',
+                    border: fieldErrors.consent_given ? '1px solid #B71C1C' : '1px solid transparent',
+                    cursor: 'pointer', fontSize: '13px', color: '#555', lineHeight: 1.5
+                  }}>
+                    <input
+                      type="checkbox" style={{ marginTop: '3px' }}
+                      checked={form.consent_given}
+                      onChange={e => update('consent_given', e.target.checked)}
+                    />
+                    <span>
+                      I agree to send my data to the “Comes” shelter team so they can contact me about
+                      this adoption request.
+                    </span>
+                  </label>
+                  {fieldErrors.consent_given && (
+                    <div style={{ color: '#B71C1C', fontSize: '12px', marginTop: '6px' }}>
+                      {fieldErrors.consent_given}
+                    </div>
+                  )}
+                </div>
 
                 <button
                   onClick={handleSubmit}
@@ -272,13 +322,23 @@ export default function ApplyPage() {
   )
 }
 
-function Field({ label, children }) {
+function inputStyleFor(error) {
+  if (!error) return inputStyle
+  return { ...inputStyle, border: '1px solid #B71C1C', background: '#FFF5F5' }
+}
+
+function Field({ label, children, error }) {
   return (
     <div>
       <label style={{ fontSize: '13px', color: '#666', display: 'block', marginBottom: '6px' }}>
         {label}
       </label>
       {children}
+      {error && (
+        <div style={{ color: '#B71C1C', fontSize: '12px', marginTop: '6px' }}>
+          {error}
+        </div>
+      )}
     </div>
   )
 }
