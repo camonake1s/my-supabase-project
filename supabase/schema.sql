@@ -138,6 +138,18 @@ create policy "public submit adoptions" on public.adoptions    for insert with c
 alter table public.animals add column if not exists arrival_story text;
 alter table public.animals add column if not exists special_characteristics text;
 
+-- Ensure all adoption columns exist on older databases that were created
+-- before these columns were added to the schema. Safe to re-run.
+alter table public.adoptions add column if not exists email              text;
+alter table public.adoptions add column if not exists visit_at           timestamptz;
+alter table public.adoptions add column if not exists animal_experience  text;
+alter table public.adoptions add column if not exists living_environment text;
+alter table public.adoptions add column if not exists consent_given      boolean default false;
+
+-- Force PostgREST to pick up the new columns immediately (otherwise
+-- the API may keep using its old schema cache for up to a few minutes).
+notify pgrst, 'reload schema';
+
 -- Backfill arrival story from legacy description when empty
 update public.animals
 set arrival_story = description
