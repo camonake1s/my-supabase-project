@@ -241,14 +241,11 @@ export default function App() {
                     marginBottom: '0.55rem',
                   }}
                 >
-                  Shelter “Hope”: how near Almaty they rescue those once betrayed by people
+                  How a shelter near Almaty rescues abandoned animals
                 </h3>
                 <p style={{ fontSize: '0.97rem', color: 'var(--color-muted)', lineHeight: 1.6 }}>
-                  More than 400 dogs and cats are cared for at the Comes shelter in Almaty region.
-                  Operating since 2018, it was founded by siblings Sergey and Yulia Snegirev, who give
-                  every rescued animal rehabilitation, treatment, and a careful path to a new family.
-                  Adopters are asked to send regular updates from the animal’s new home, so the shelter
-                  knows each rescue is safe and loved.
+                  400+ dogs and cats. Founded in 2018 by Yulia &amp; Sergey Snegirev. Every animal gets
+                  treatment, rehabilitation, and a safe path to a new family.
                 </p>
               </div>
 
@@ -284,7 +281,7 @@ export default function App() {
                   rel="noopener noreferrer"
                   style={{ color: ORANGE, fontWeight: 600, fontSize: '0.95rem' }}
                 >
-                  Read the full article →
+                  Read full story on informburo.kz →
                 </a>
               </footer>
             </article>
