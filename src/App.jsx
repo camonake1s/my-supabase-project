@@ -319,7 +319,7 @@ export default function App() {
                 }}
               >
                 {animal.photo_url ? (
-                  <img src={animal.photo_url} alt="" style={{ width: '100%', height: '152px', objectFit: 'cover' }} />
+                  <img src={animal.photo_url} alt="" style={{ width: '100%', height: '152px', objectFit: 'contain', background: '#E8DCC8' }} />
                 ) : (
                   <div
                     style={{

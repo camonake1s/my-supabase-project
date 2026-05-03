@@ -473,7 +473,7 @@ export default function AnimalPage() {
               <img
                 src={animal.photo_url}
                 alt={animal.name}
-                style={{ width: '100%', height: 'clamp(220px, 38vw, 360px)', objectFit: 'cover' }}
+                style={{ width: '100%', height: 'clamp(220px, 38vw, 360px)', objectFit: 'contain', background: '#E8DCC8' }}
               />
             ) : (
               <div
