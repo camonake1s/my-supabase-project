@@ -37,7 +37,6 @@ export default function App() {
   const petsRef = useRef(null)
   const donateRef = useRef(null)
   const aboutRef = useRef(null)
-  const newsRef = useRef(null)
 
   const [animals, setAnimals] = useState([])
   const [typeFilter, setTypeFilter] = useState('all')
@@ -111,9 +110,6 @@ export default function App() {
           </button>
           <button type="button" onClick={() => scrollTo(aboutRef)} style={navBtn}>
             About Us
-          </button>
-          <button type="button" onClick={() => scrollTo(newsRef)} style={navBtn}>
-            News
           </button>
         </nav>
       </header>
@@ -190,6 +186,108 @@ export default function App() {
             >
               Support the Shelter
             </button>
+
+            <article
+              style={{
+                background: 'white',
+                border: '1px solid rgba(0,0,0,0.06)',
+                borderRadius: '14px',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
+                overflow: 'hidden',
+                marginTop: '2rem',
+                width: '100%',
+              }}
+            >
+              <header
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '14px 18px',
+                }}
+              >
+                <div
+                  aria-hidden
+                  style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '50%',
+                    background: '#1A5C52',
+                    color: 'white',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: 700,
+                    fontSize: '1.15rem',
+                    flexShrink: 0,
+                  }}
+                >
+                  📰
+                </div>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ fontWeight: 700, fontSize: '0.95rem', color: DARK }}>informburo.kz</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--color-muted)' }}>
+                    News · Featured story
+                  </div>
+                </div>
+              </header>
+
+              <div style={{ padding: '4px 18px 16px' }}>
+                <h3
+                  style={{
+                    fontSize: '1.18rem',
+                    color: DARK,
+                    lineHeight: 1.3,
+                    marginBottom: '0.55rem',
+                  }}
+                >
+                  Shelter “Hope”: how near Almaty they rescue those once betrayed by people
+                </h3>
+                <p style={{ fontSize: '0.97rem', color: 'var(--color-muted)', lineHeight: 1.6 }}>
+                  More than 400 dogs and cats are cared for at the Comes shelter in Almaty region.
+                  Operating since 2018, it was founded by siblings Sergey and Yulia Snegirev, who give
+                  every rescued animal rehabilitation, treatment, and a careful path to a new family.
+                  Adopters are asked to send regular updates from the animal’s new home, so the shelter
+                  knows each rescue is safe and loved.
+                </p>
+              </div>
+
+              <img
+                src={NEWS_ARTICLE_PHOTO}
+                alt="Rescued cat at the Comes shelter"
+                style={{
+                  width: '100%',
+                  height: 'clamp(220px, 38vw, 360px)',
+                  objectFit: 'contain',
+                  background: '#E8DCC8',
+                  display: 'block',
+                }}
+              />
+
+              <footer
+                style={{
+                  padding: '14px 18px',
+                  borderTop: '1px solid rgba(0,0,0,0.06)',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  gap: '8px',
+                }}
+              >
+                <span style={{ fontSize: '0.85rem', color: 'var(--color-muted)' }}>
+                  Source: informburo.kz
+                </span>
+                <a
+                  href={NEWS_ARTICLE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: ORANGE, fontWeight: 600, fontSize: '0.95rem' }}
+                >
+                  Read the full article →
+                </a>
+              </footer>
+            </article>
           </div>
         </div>
 
@@ -206,115 +304,6 @@ export default function App() {
             backgroundRepeat: 'no-repeat',
           }}
         />
-      </section>
-
-      <section
-        ref={newsRef}
-        id="news"
-        className="page-content-wide scroll-target-section"
-        style={{ paddingTop: 'var(--space-section-y)', paddingBottom: '0' }}
-      >
-        <article
-          style={{
-            background: 'white',
-            border: '1px solid rgba(0,0,0,0.06)',
-            borderRadius: '14px',
-            boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-            overflow: 'hidden',
-            maxWidth: '720px',
-            margin: '0 auto',
-          }}
-        >
-          <header
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              padding: '14px 18px',
-            }}
-          >
-            <div
-              aria-hidden
-              style={{
-                width: '44px',
-                height: '44px',
-                borderRadius: '50%',
-                background: '#1A5C52',
-                color: 'white',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 700,
-                fontSize: '1.15rem',
-                flexShrink: 0,
-              }}
-            >
-              📰
-            </div>
-            <div style={{ minWidth: 0 }}>
-              <div style={{ fontWeight: 700, fontSize: '0.95rem', color: DARK }}>informburo.kz</div>
-              <div style={{ fontSize: '0.78rem', color: 'var(--color-muted)' }}>
-                News · Featured story
-              </div>
-            </div>
-          </header>
-
-          <div style={{ padding: '4px 18px 16px' }}>
-            <h3
-              style={{
-                fontSize: '1.18rem',
-                color: DARK,
-                lineHeight: 1.3,
-                marginBottom: '0.55rem',
-              }}
-            >
-              Shelter “Hope”: how near Almaty they rescue those once betrayed by people
-            </h3>
-            <p style={{ fontSize: '0.97rem', color: 'var(--color-muted)', lineHeight: 1.6 }}>
-              More than 400 dogs and cats are cared for at the Comes shelter in Almaty region.
-              Operating since 2018, it was founded by siblings Sergey and Yulia Snegirev, who give
-              every rescued animal rehabilitation, treatment, and a careful path to a new family.
-              Adopters are asked to send regular updates from the animal’s new home, so the shelter
-              knows each rescue is safe and loved.
-            </p>
-          </div>
-
-          <img
-            src={NEWS_ARTICLE_PHOTO}
-            alt="Rescued cat at the Comes shelter"
-            style={{
-              width: '100%',
-              height: 'clamp(220px, 38vw, 360px)',
-              objectFit: 'contain',
-              background: '#E8DCC8',
-              display: 'block',
-            }}
-          />
-
-          <footer
-            style={{
-              padding: '14px 18px',
-              borderTop: '1px solid rgba(0,0,0,0.06)',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '8px',
-            }}
-          >
-            <span style={{ fontSize: '0.85rem', color: 'var(--color-muted)' }}>
-              Source: informburo.kz
-            </span>
-            <a
-              href={NEWS_ARTICLE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: ORANGE, fontWeight: 600, fontSize: '0.95rem' }}
-            >
-              Read the full article →
-            </a>
-          </footer>
-        </article>
       </section>
 
       <section style={{ textAlign: 'center', padding: 'var(--space-section-y) clamp(1rem, 4vw, 2.5rem)' }}>
