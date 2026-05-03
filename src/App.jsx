@@ -6,6 +6,7 @@ import SiteFooter from './SiteFooter.jsx'
 
 const BG = '#FAF6F0'
 const ORANGE = '#C8773A'
+const ACCENT = '#FF9F1C'
 const DARK = '#1f1f1f'
 const NAV_BG = '#2B2724'
 const NAV_FG = '#FAF6F0'
@@ -118,77 +119,75 @@ export default function App() {
 
       <section
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.08)), url('${HERO_IMAGE_URL}')`,
+          backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%), url('${HERO_IMAGE_URL}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
+          minHeight: 'clamp(420px, 56vw, 620px)',
+          display: 'flex',
+          alignItems: 'center',
         }}
       >
         <div
           className="page-content-wide"
           style={{
-            paddingTop: 'clamp(3rem, 9vw, 5.5rem)',
-            paddingBottom: 'clamp(3rem, 9vw, 5.5rem)',
+            paddingTop: 'clamp(3rem, 8vw, 5rem)',
+            paddingBottom: 'clamp(3rem, 8vw, 5rem)',
+            width: '100%',
           }}
         >
-          <div
-            style={{
-              background: 'rgba(255, 255, 255, 0.94)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              borderRadius: '16px',
-              padding: 'clamp(1.5rem, 4vw, 2.25rem)',
-              maxWidth: '620px',
-              boxShadow: '0 6px 28px rgba(0,0,0,0.18)',
-            }}
-          >
+          <div style={{ maxWidth: '560px' }}>
             <h1
               style={{
-                fontSize: 'clamp(24px, 3.5vw, 28px)',
-                color: '#1A1A1A',
+                fontSize: 'clamp(2rem, 5vw, 2.5rem)',
                 fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.04em',
-                lineHeight: 1.5,
-                margin: 0,
+                color: '#FFFFFF',
+                lineHeight: 1.1,
+                marginBottom: '0.85rem',
               }}
             >
               Comes Animal Shelter
             </h1>
             <p
               style={{
-                fontSize: 'clamp(14px, 1.6vw, 16px)',
-                color: '#595959',
+                fontSize: '1.1rem',
                 fontWeight: 500,
-                marginTop: '0.85rem',
-                lineHeight: 1.5,
+                color: 'rgba(255, 255, 255, 0.9)',
+                marginBottom: '1.5rem',
               }}
             >
-              Hope Sanctuary • Kainar Village (37.5 km from Almaty)
+              📍 Kainar Village, Almaty Region
             </p>
-            <p
+            <div
               style={{
-                fontSize: '13px',
-                color: '#2D5A27',
+                color: ACCENT,
+                fontSize: '0.9rem',
                 fontWeight: 600,
-                fontStyle: 'italic',
-                marginTop: '0.85rem',
-                lineHeight: 1.5,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                marginBottom: '2rem',
               }}
             >
-              17 Years of Compassionate Rescue
-            </p>
-            <p
+              Founded by Yulia Snigireva • 17 Years of Compassion
+            </div>
+            <button
+              type="button"
+              onClick={() => scrollTo(donateRef)}
               style={{
-                fontSize: '13px',
-                color: '#2D5A27',
-                fontWeight: 600,
-                marginTop: '0.35rem',
-                lineHeight: 1.5,
+                padding: '14px 30px',
+                background: ACCENT,
+                color: '#1A1A1A',
+                border: 'none',
+                borderRadius: '10px',
+                cursor: 'pointer',
+                fontSize: '1rem',
+                fontWeight: 700,
+                boxShadow: '0 6px 18px rgba(255,159,28,0.4)',
+                fontFamily: 'inherit',
               }}
             >
-              Founded by Yulia Snigireva
-            </p>
+              Support the Shelter
+            </button>
           </div>
         </div>
       </section>
