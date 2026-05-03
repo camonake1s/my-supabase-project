@@ -22,13 +22,20 @@ function petTypeLabel(t) {
   if (t === 'dog') return 'Dog'
   if (t === 'cat') return 'Cat'
   if (t === 'special') return 'Special needs'
-  return t ? String(t) : '—'
+  return t ? String(t) : '-'
 }
 
 function genderLabel(g) {
-  if (g === 'male') return 'Male'
-  if (g === 'female') return 'Female'
-  return g ? String(g) : '—'
+  if (g === null || g === undefined) return '-'
+  const v = String(g).trim().toLowerCase()
+  if (!v) return '-'
+  if (['male', 'm', 'man', 'boy', 'м', 'муж', 'мужской', 'мальчик', 'самец', 'кобель', 'кот'].includes(v)) {
+    return 'Male'
+  }
+  if (['female', 'f', 'woman', 'girl', 'ж', 'жен', 'женский', 'женская', 'девочка', 'самка', 'сука', 'кошка'].includes(v)) {
+    return 'Female'
+  }
+  return String(g)
 }
 
 /** Arrival story + special traits (+ extra description when distinct), one readable block */
@@ -417,7 +424,10 @@ export default function AnimalPage() {
           top: 0,
           zIndex: 50,
           boxShadow: '0 2px 10px rgba(0,0,0,0.18)',
-          borderBottom: '1px solid rgba(0,0,0,0.25)',
+          backgroundImage: 'linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25))',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '40px 1px',
+          backgroundPosition: 'bottom center',
         }}
       >
         <div
@@ -445,7 +455,7 @@ export default function AnimalPage() {
                   Adoption Requirements
                 </h2>
                 <p style={{ fontSize: '0.95rem', color: 'var(--color-muted)', marginBottom: '1rem', lineHeight: 1.55 }}>
-                  Please read carefully before you apply — this keeps adoptions safe and transparent for you and for the
+                  Please read carefully before you apply - this keeps adoptions safe and transparent for you and for the
                   shelter.
                 </p>
                 <ul style={{ paddingLeft: '1.25rem', color: '#3a3a3a', lineHeight: 1.75, fontSize: '1rem' }}>
@@ -505,7 +515,7 @@ export default function AnimalPage() {
                   </div>
                   <div className="animal-meta-row">
                     <span className="animal-meta-label">Age</span>
-                    <span className="animal-meta-value">{animal.age || '—'}</span>
+                    <span className="animal-meta-value">{animal.age || '-'}</span>
                   </div>
                   <div className="animal-meta-row">
                     <span className="animal-meta-label">Gender</span>

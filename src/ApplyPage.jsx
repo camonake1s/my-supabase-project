@@ -93,7 +93,10 @@ export default function ApplyPage() {
         top: 0,
         zIndex: 50,
         boxShadow: '0 2px 10px rgba(0,0,0,0.18)',
-        borderBottom: '1px solid rgba(0,0,0,0.25)',
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25))',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '40px 1px',
+        backgroundPosition: 'bottom center',
       }}>
         <div style={{ fontSize: '20px', fontWeight: 'bold', cursor: 'pointer', color: NAV_FG }}
              onClick={() => navigate('/')}>🐾 PlayFul Paws</div>
@@ -127,7 +130,7 @@ export default function ApplyPage() {
           <div style={{ background: ORANGE, padding: '24px 32px' }}>
             <h2 style={{ color: 'white', fontSize: '22px', marginBottom: '4px' }}>Adoption Application</h2>
             <p style={{ color: '#FAE5D3', fontSize: '14px' }}>
-              {animal?.name ? `${animal.name} — ` : ''}Your application will be sent to our team
+              {animal?.name ? `${animal.name} - ` : ''}Your application will be sent to our team
             </p>
           </div>
 

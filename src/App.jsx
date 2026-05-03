@@ -93,7 +93,10 @@ export default function App() {
           top: 0,
           zIndex: 50,
           boxShadow: '0 2px 10px rgba(0,0,0,0.18)',
-          borderBottom: '1px solid rgba(0,0,0,0.25)',
+          backgroundImage: 'linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25))',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '40px 1px',
+          backgroundPosition: 'bottom center',
         }}
       >
         <div
@@ -135,7 +138,7 @@ export default function App() {
           </h1>
           <p style={{ color: 'var(--color-muted)', marginTop: '1rem', fontSize: '1.08rem', maxWidth: '52ch' }}>
             Rescuing abandoned animals for 17 years
-            <br />— Yulia Snigireva
+            <br />- Yulia Snigireva
           </p>
         </div>
 
@@ -152,7 +155,7 @@ export default function App() {
           <div style={{ color: ORANGE, fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.06em', marginBottom: '0.35rem' }}>
             RESCUE STORY
           </div>
-          <h2 style={{ fontSize: '1.1rem', color: DARK }}>{story?.title ?? 'Victoria — three surgeries'}</h2>
+          <h2 style={{ fontSize: '1.1rem', color: DARK }}>{story?.title ?? 'Victoria - three surgeries'}</h2>
           <p style={{ fontSize: '0.95rem', color: 'var(--color-muted)', marginTop: '0.5rem', lineHeight: 1.55 }}>
             {story?.body ??
               'A local resident poured a chemical solution on her. Thanks to your help, Victoria is finally healing.'}
@@ -226,7 +229,7 @@ export default function App() {
                     justifyContent: 'center',
                   }}
                 >
-                  <div style={{ width: '56px', height: '2px', background: ORANGE, opacity: 0.85 }} />
+                  <div style={{ width: '40px', height: '2px', background: ORANGE, opacity: 0.85 }} />
                 </div>
               )}
             </div>
@@ -367,7 +370,7 @@ export default function App() {
             <DonateQr url={DONATE_URL} size={200} />
             <div className="charity-qr-copy">
               <h3>Scan the QR code</h3>
-              <p>Open your phone camera and point it at the code — you will be taken to the official donation page.</p>
+              <p>Open your phone camera and point it at the code - you will be taken to the official donation page.</p>
               <p>All donations go directly to the “Comes” foundation. No intermediaries.</p>
             </div>
           </div>
@@ -418,7 +421,7 @@ export default function App() {
         style={{ paddingTop: 'var(--space-section-y)', paddingBottom: 'var(--space-section-y)' }}
       >
         <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 1.85rem)', marginBottom: '1.25rem', color: DARK }}>
-          About Us — <span style={{ color: ORANGE }}>PlayFul Paws</span>
+          About Us - <span style={{ color: ORANGE }}>PlayFul Paws</span>
         </h2>
 
         <div style={{ fontSize: '1.08rem', color: '#3d3d3d', lineHeight: 1.7, maxWidth: 'none' }}>
@@ -432,7 +435,7 @@ export default function App() {
             >
               inVision U
             </a>
-            , brought together by a shared goal — to make animal adoption more accessible and transparent.
+            , brought together by a shared goal - to make animal adoption more accessible and transparent.
           </p>
           <p style={{ marginTop: '1.1rem' }}>
             Today, many shelters struggle with scattered information, limited visibility, and time-consuming communication.
@@ -441,7 +444,7 @@ export default function App() {
             to explore, connect, and take action.
           </p>
           <p style={{ marginTop: '1.1rem' }}>
-            We believe that small improvements in access and information can lead to real change — more adoptions, less time
+            We believe that small improvements in access and information can lead to real change - more adoptions, less time
             on the streets, and better lives for animals.
           </p>
         </div>

@@ -200,7 +200,10 @@ a {
 .charity-strip {
   background: #d6e8e4;
   padding: var(--space-section-y) 0;
-  border-top: 1px solid rgba(26, 92, 82, 0.12);
+  background-image: linear-gradient(rgba(26, 92, 82, 0.12), rgba(26, 92, 82, 0.12));
+  background-repeat: no-repeat;
+  background-size: 40px 1px;
+  background-position: top center;
 }
 
 .charity-inner {
@@ -247,8 +250,11 @@ a {
 .site-footer {
   text-align: center;
   padding: var(--space-section-y) 1.25rem calc(var(--space-section-y) + 0.25rem);
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
   background: var(--color-bg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08));
+  background-repeat: no-repeat;
+  background-size: 40px 1px;
+  background-position: top center;
   color: var(--color-muted);
 }
 
