@@ -118,7 +118,7 @@ export default function App() {
 
       <section
         style={{
-          backgroundImage: `linear-gradient(rgba(15,12,10,0.6), rgba(15,12,10,0.35)), url('${HERO_IMAGE_URL}')`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.08)), url('${HERO_IMAGE_URL}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -131,45 +131,63 @@ export default function App() {
             paddingBottom: 'clamp(3rem, 9vw, 5.5rem)',
           }}
         >
-          <div style={{ maxWidth: '640px' }}>
+          <div
+            style={{
+              background: 'rgba(255, 255, 255, 0.94)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              borderRadius: '16px',
+              padding: 'clamp(1.5rem, 4vw, 2.25rem)',
+              maxWidth: '620px',
+              boxShadow: '0 6px 28px rgba(0,0,0,0.18)',
+            }}
+          >
             <h1
               style={{
-                fontSize: 'clamp(1.95rem, 4vw, 2.65rem)',
-                color: 'white',
-                lineHeight: 1.15,
-                textShadow: '0 1px 4px rgba(0,0,0,0.5)',
+                fontSize: 'clamp(24px, 3.5vw, 28px)',
+                color: '#1A1A1A',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.04em',
+                lineHeight: 1.5,
+                margin: 0,
               }}
             >
               Comes Animal Shelter
-              <br />
-              <span style={{ color: ORANGE, textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
-                (Kainar, 37.5 km from Almaty)
-              </span>
             </h1>
             <p
               style={{
-                color: 'white',
-                marginTop: '1.1rem',
-                fontSize: '1.08rem',
-                fontWeight: 600,
+                fontSize: 'clamp(14px, 1.6vw, 16px)',
+                color: '#595959',
+                fontWeight: 500,
+                marginTop: '0.85rem',
                 lineHeight: 1.5,
-                maxWidth: '54ch',
-                textShadow: '0 1px 4px rgba(0,0,0,0.55)',
               }}
             >
-              📍 Located in Kainar village · Shelter “Hope” · Run by a dedicated team for 117+ animals
+              Hope Sanctuary • Kainar Village (37.5 km from Almaty)
             </p>
             <p
               style={{
-                color: 'rgba(255,255,255,0.92)',
+                fontSize: '13px',
+                color: '#2D5A27',
+                fontWeight: 600,
+                fontStyle: 'italic',
                 marginTop: '0.85rem',
-                fontSize: '1rem',
-                maxWidth: '52ch',
-                textShadow: '0 1px 4px rgba(0,0,0,0.55)',
+                lineHeight: 1.5,
               }}
             >
-              Rescuing abandoned animals for 17 years
-              <br />- Yulia Snigireva
+              17 Years of Compassionate Rescue
+            </p>
+            <p
+              style={{
+                fontSize: '13px',
+                color: '#2D5A27',
+                fontWeight: 600,
+                marginTop: '0.35rem',
+                lineHeight: 1.5,
+              }}
+            >
+              Founded by Yulia Snigireva
             </p>
           </div>
         </div>
