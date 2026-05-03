@@ -143,7 +143,7 @@ export default function App() {
                 marginBottom: '0.85rem',
               }}
             >
-              Comes Animal Shelter
+              “Comes” Animal Shelter
             </h1>
             <p
               style={{
@@ -165,7 +165,7 @@ export default function App() {
                 marginBottom: '2rem',
               }}
             >
-              Founded by Yulia Snigireva • 17 Years of Compassion
+              Founded by Yulia Snigireva
             </div>
             <button
               type="button"
