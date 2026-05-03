@@ -37,6 +37,7 @@ export default function App() {
   const petsRef = useRef(null)
   const donateRef = useRef(null)
   const aboutRef = useRef(null)
+  const newsRef = useRef(null)
 
   const [animals, setAnimals] = useState([])
   const [typeFilter, setTypeFilter] = useState('all')
@@ -108,35 +109,36 @@ export default function App() {
           <button type="button" onClick={() => scrollTo(petsRef)} style={navBtn}>
             Find an Animal
           </button>
-          <button type="button" onClick={() => scrollTo(donateRef)} style={navBtn}>
-            Charity
-          </button>
           <button type="button" onClick={() => scrollTo(aboutRef)} style={navBtn}>
             About Us
+          </button>
+          <button type="button" onClick={() => scrollTo(newsRef)} style={navBtn}>
+            News
           </button>
         </nav>
       </header>
 
       <section
         style={{
-          backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%), url('${HERO_IMAGE_URL}')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          minHeight: 'clamp(420px, 56vw, 620px)',
           display: 'flex',
-          alignItems: 'center',
+          flexWrap: 'wrap',
+          alignItems: 'stretch',
+          background: NAV_BG,
+          minHeight: 'clamp(420px, 56vw, 620px)',
         }}
       >
         <div
-          className="page-content-wide"
           style={{
-            paddingTop: 'clamp(3rem, 8vw, 5rem)',
-            paddingBottom: 'clamp(3rem, 8vw, 5rem)',
-            width: '100%',
+            flex: '1 1 360px',
+            minWidth: '300px',
+            padding: 'clamp(2.25rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            color: NAV_FG,
           }}
         >
-          <div style={{ maxWidth: '560px' }}>
+          <div style={{ maxWidth: '480px', marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
             <h1
               style={{
                 fontSize: 'clamp(2rem, 5vw, 2.5rem)',
@@ -190,10 +192,26 @@ export default function App() {
             </button>
           </div>
         </div>
+
+        <div
+          aria-label="Yulia Snigireva at the Comes shelter"
+          role="img"
+          style={{
+            flex: '1 1 360px',
+            minWidth: '300px',
+            minHeight: '320px',
+            backgroundImage: `url('${HERO_IMAGE_URL}')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
       </section>
 
       <section
-        className="page-content-wide"
+        ref={newsRef}
+        id="news"
+        className="page-content-wide scroll-target-section"
         style={{ paddingTop: 'var(--space-section-y)', paddingBottom: '0' }}
       >
         <article
