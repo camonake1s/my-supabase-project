@@ -138,6 +138,10 @@ create policy "public submit adoptions" on public.adoptions    for insert with c
 alter table public.animals add column if not exists arrival_story text;
 alter table public.animals add column if not exists special_characteristics text;
 
+-- Older deployed databases may be missing the consent column added later.
+-- Safe to run repeatedly; does nothing if the column already exists.
+alter table public.adoptions add column if not exists consent_given boolean default false;
+
 -- Ensure all adoption columns exist on older databases that were created
 -- before these columns were added to the schema. Safe to re-run.
 alter table public.adoptions add column if not exists email              text;

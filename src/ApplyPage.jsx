@@ -109,7 +109,6 @@ export default function ApplyPage() {
       visit_at: form.visit_at ? new Date(form.visit_at).toISOString() : null,
       animal_experience: form.animal_experience.trim() || null,
       living_environment: form.living_environment.trim() || null,
-      consent_given: true
     })
     setLoading(false)
     if (error) {
