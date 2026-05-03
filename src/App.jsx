@@ -24,7 +24,6 @@ const HERO_IMAGE_URL = 'https://i.pinimg.com/736x/16/bd/d9/16bdd92a5093b8166b4b3
 
 const NEWS_ARTICLE_URL =
   'https://informburo.kz/stati/priiut-nadezdy-kak-bliz-almaty-spasaiut-tex-kogo-odnazdy-predali-liudi'
-const NEWS_ARTICLE_PHOTO = 'https://i.pinimg.com/736x/f6/dd/f9/f6ddf96b7c3c2d69903efeb25f7e590e.jpg'
 
 function statusLabel(s) {
   if (s === 'treatment') return { text: 'Under Treatment', bg: '#FFF3E0', color: '#E65100' }
@@ -248,18 +247,6 @@ export default function App() {
                   treatment, rehabilitation, and a safe path to a new family.
                 </p>
               </div>
-
-              <img
-                src={NEWS_ARTICLE_PHOTO}
-                alt="Rescued cat at the Comes shelter"
-                style={{
-                  width: '100%',
-                  height: 'clamp(220px, 38vw, 360px)',
-                  objectFit: 'contain',
-                  background: '#E8DCC8',
-                  display: 'block',
-                }}
-              />
 
               <footer
                 style={{
