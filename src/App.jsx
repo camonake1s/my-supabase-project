@@ -165,7 +165,7 @@ export default function App() {
                 marginBottom: '2rem',
               }}
             >
-              Founded by Yulia Snigireva
+              Founded by Yulia Snegireva
             </div>
             <button
               type="button"
@@ -276,7 +276,7 @@ export default function App() {
         </div>
 
         <div
-          aria-label="Yulia Snigireva at the Comes shelter"
+          aria-label="Yulia Snegireva at the Comes shelter"
           role="img"
           style={{
             flex: '1 1 360px',
