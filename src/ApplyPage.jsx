@@ -172,7 +172,7 @@ export default function ApplyPage() {
           <div style={{ background: ORANGE, padding: '24px 32px' }}>
             <h2 style={{ color: 'white', fontSize: '22px', marginBottom: '4px' }}>Adoption Application</h2>
             <p style={{ color: '#FAE5D3', fontSize: '14px' }}>
-              {animal?.name ? `${animal.name} - ` : ''}Your application will be sent to our team
+              We are waiting for you in our shelter!
             </p>
           </div>
 
