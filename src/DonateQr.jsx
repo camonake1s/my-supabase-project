@@ -54,7 +54,7 @@ export default function DonateQr({ url, size = 192 }) {
     <a href={url} target="_blank" rel="noopener noreferrer" style={{ lineHeight: 0, flexShrink: 0 }}>
       <img
         src={dataUrl}
-        alt="Scan to open the donation page"
+        alt="Comes Animal Shelter - QR code to scan and open the donation page · приют для животных Comes"
         width={size}
         height={size}
         style={{ display: 'block', width: size, height: size }}

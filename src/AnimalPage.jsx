@@ -472,7 +472,7 @@ export default function AnimalPage() {
             {animal.photo_url ? (
               <img
                 src={animal.photo_url}
-                alt={animal.name}
+                alt={`Comes Animal Shelter - ${animal.name}, ${animal.type === 'cat' ? 'cat' : 'dog'} available for adoption · приют для животных Comes`}
                 style={{ width: '100%', height: 'clamp(220px, 38vw, 360px)', objectFit: 'contain', background: '#E8DCC8' }}
               />
             ) : (
