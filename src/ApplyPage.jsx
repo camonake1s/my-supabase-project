@@ -195,7 +195,7 @@ export default function ApplyPage() {
                     border: '1px solid #A5D6A7',
                   }}
                 >
-                  ✅ Your application has been sent.
+                  Your application has been sent to “Comes” Animal Shelter ✅
                 </div>
                 <p style={{ color: DARK, fontSize: '17px', fontWeight: 600, marginBottom: '24px' }}>
                   {animal?.name ? `${animal.name} will be waiting for you!` : 'Your new friend will be waiting for you!'}
