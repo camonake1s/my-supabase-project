@@ -197,7 +197,7 @@ export default function ApplyPage() {
                 </div>
                 <div style={{ fontSize: '48px', marginBottom: '16px' }}>✅</div>
                 <h3 style={{ fontSize: '20px', color: DARK, marginBottom: '8px' }}>Thank you!</h3>
-                <p style={{ color: '#666', marginBottom: '24px' }}>The shelter team will contact you soon.</p>
+                <p style={{ color: '#666', marginBottom: '24px' }}>We are waiting for you in our shelter!</p>
                 <button
                   onClick={() => navigate('/')}
                   style={{
