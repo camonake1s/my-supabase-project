@@ -561,7 +561,10 @@ export default function App() {
               style={{ color: ORANGE, fontWeight: 700, borderBottom: `2px solid ${ORANGE}` }}
             >
               inVision U
-            </a>
+            </a>{' '}
+            <span style={{ color: 'var(--color-muted)', fontSize: '0.95rem', fontStyle: 'italic' }}>
+              (Initiative of Arsen Tomsky powered by inDrive)
+            </span>
             , brought together by a shared goal - to make animal adoption more accessible and transparent.
           </p>
           <p style={{ marginTop: '1.1rem' }}>
@@ -582,6 +585,11 @@ export default function App() {
         </div>
 
         <p style={{ fontSize: '1rem', color: 'var(--color-muted)', marginTop: '2rem', textAlign: 'center' }}>
+          <strong style={{ color: DARK }}>The members of the PlayFul Paws team:</strong>{' '}
+          Balaussa Satymbek, Milena Gukengeimer, Zarina Doszhanova, Aruzhan Yerkinova
+        </p>
+
+        <p style={{ fontSize: '1rem', color: 'var(--color-muted)', marginTop: '0.6rem', textAlign: 'center' }}>
           <strong style={{ color: DARK }}>Contact:</strong>{' '}
           <a href="mailto:aruzhan.yerkinova@invisionu.education" style={{ color: ORANGE, fontWeight: 600 }}>
             aruzhan.yerkinova@invisionu.education
