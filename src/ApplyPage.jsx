@@ -109,12 +109,14 @@ export default function ApplyPage() {
       visit_at: form.visit_at ? new Date(form.visit_at).toISOString() : null,
       animal_experience: form.animal_experience.trim() || null,
       living_environment: form.living_environment.trim() || null,
+      consent_given: true,
     })
     setLoading(false)
     if (error) {
+      console.error('Adoption insert failed:', error)
       setFormBanner({
         type: 'error',
-        text: `We could not save your application: ${error.message}. Please try again, or contact the shelter directly via WhatsApp.`,
+        text: 'We could not send your application right now. Please try again in a moment, or contact the shelter directly on WhatsApp at +7 701 723 0104.',
       })
       return
     }
