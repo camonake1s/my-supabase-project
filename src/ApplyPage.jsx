@@ -172,7 +172,9 @@ export default function ApplyPage() {
           <div style={{ background: ORANGE, padding: '24px 32px' }}>
             <h2 style={{ color: 'white', fontSize: '22px', marginBottom: '4px' }}>Adoption Application</h2>
             <p style={{ color: '#FAE5D3', fontSize: '14px' }}>
-              Thank you for choosing to adopt!
+              {submitted
+                ? 'Thank you for choosing to adopt!'
+                : `${animal?.name ? `${animal.name} - ` : ''}Your application will be sent to our team`}
             </p>
           </div>
 
@@ -195,7 +197,7 @@ export default function ApplyPage() {
                 >
                   ✅ Your application has been sent.
                 </div>
-                <p style={{ color: DARK, marginBottom: '24px', fontSize: '17px', fontWeight: 600 }}>
+                <p style={{ color: DARK, fontSize: '17px', fontWeight: 600, marginBottom: '24px' }}>
                   {animal?.name ? `${animal.name} will be waiting for you!` : 'Your new friend will be waiting for you!'}
                 </p>
                 <button
