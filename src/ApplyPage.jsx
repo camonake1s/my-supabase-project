@@ -172,7 +172,7 @@ export default function ApplyPage() {
           <div style={{ background: ORANGE, padding: '24px 32px' }}>
             <h2 style={{ color: 'white', fontSize: '22px', marginBottom: '4px' }}>Adoption Application</h2>
             <p style={{ color: '#FAE5D3', fontSize: '14px' }}>
-              We are waiting for you in our shelter!
+              Thank you for choosing to adopt!
             </p>
           </div>
 
@@ -182,7 +182,7 @@ export default function ApplyPage() {
                 <div
                   role="status"
                   style={{
-                    margin: '0 auto 20px',
+                    margin: '0 auto 16px',
                     maxWidth: '28rem',
                     padding: '14px 18px',
                     borderRadius: '10px',
@@ -193,11 +193,10 @@ export default function ApplyPage() {
                     border: '1px solid #A5D6A7',
                   }}
                 >
-                  ✅ Your application has been sent.{' '}
-                  {animal?.name ? `${animal.name} 🐾 will be waiting for you!` : 'Your new friend will be waiting for you!'}
+                  ✅ Your application has been sent.
                 </div>
-                <p style={{ color: '#666', marginBottom: '24px', fontSize: '15px' }}>
-                  Thank you for choosing to adopt.
+                <p style={{ color: DARK, marginBottom: '24px', fontSize: '17px', fontWeight: 600 }}>
+                  {animal?.name ? `${animal.name} will be waiting for you!` : 'Your new friend will be waiting for you!'}
                 </p>
                 <button
                   onClick={() => navigate('/')}
