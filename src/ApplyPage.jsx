@@ -193,11 +193,12 @@ export default function ApplyPage() {
                     border: '1px solid #A5D6A7',
                   }}
                 >
-                  Your application has been sent. We’ll wait for you!
+                  ✅ Your application has been sent.{' '}
+                  {animal?.name ? `${animal.name} 🐾 will be waiting for you!` : 'Your new friend will be waiting for you!'}
                 </div>
-                <div style={{ fontSize: '48px', marginBottom: '16px' }}>✅</div>
-                <h3 style={{ fontSize: '20px', color: DARK, marginBottom: '8px' }}>Thank you!</h3>
-                <p style={{ color: '#666', marginBottom: '24px' }}>We are waiting for you in our shelter!</p>
+                <p style={{ color: '#666', marginBottom: '24px', fontSize: '15px' }}>
+                  Thank you for choosing to adopt.
+                </p>
                 <button
                   onClick={() => navigate('/')}
                   style={{
