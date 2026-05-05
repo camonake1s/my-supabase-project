@@ -540,8 +540,11 @@ export default function App() {
             <DonateQr url={DONATE_URL} size={200} />
             <div className="charity-qr-copy">
               <h3>Scan the QR code</h3>
-              <p>Open your phone camera and point it at the code - you will be taken to the official donation page.</p>
-              <p>All donations go directly to the “Comes” foundation. No intermediaries.</p>
+              <p>Or click on it to visit our official donation page.</p>
+              <p>
+                All contributions go directly to the “Comes” Public Foundation. As a legally registered
+                non-profit, we ensure 100% of your donation reaches animals in need with no intermediaries.
+              </p>
             </div>
           </div>
 
