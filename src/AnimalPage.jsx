@@ -434,7 +434,7 @@ export default function AnimalPage() {
           style={{ fontSize: '1.1rem', fontWeight: 700, cursor: 'pointer', color: NAV_FG, fontFamily: 'var(--font-display)' }}
           onClick={() => navigate('/')}
         >
-          🐾 PlayFul Paws
+          PlayFul Paws
         </div>
         <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
           <button type="button" onClick={() => navigate('/')} style={navBtn}>

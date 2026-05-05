@@ -168,7 +168,7 @@ export default function App() {
           style={{ fontSize: '1.15rem', fontWeight: 700, cursor: 'pointer', color: NAV_FG, fontFamily: 'var(--font-display)' }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          🐾 PlayFul Paws
+          PlayFul Paws
         </div>
         <nav style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
           <button type="button" onClick={() => scrollTo(petsRef)} style={navBtn}>
@@ -201,18 +201,6 @@ export default function App() {
           }}
         >
           <div style={{ maxWidth: '520px', marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
-            <div
-              style={{
-                color: ORANGE,
-                fontSize: '0.85rem',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.12em',
-                marginBottom: '1rem',
-              }}
-            >
-              “Comes” Animal Shelter · Kainar
-            </div>
             <h1
               style={{
                 fontSize: 'clamp(2.1rem, 5vw, 3rem)',

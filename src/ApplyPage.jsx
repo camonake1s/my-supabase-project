@@ -141,7 +141,7 @@ export default function ApplyPage() {
         backgroundPosition: 'bottom center',
       }}>
         <div style={{ fontSize: '20px', fontWeight: 'bold', cursor: 'pointer', color: NAV_FG }}
-             onClick={() => navigate('/')}>🐾 PlayFul Paws</div>
+             onClick={() => navigate('/')}>PlayFul Paws</div>
         <div style={{ display: 'flex', gap: '10px' }}>
           <button type="button" onClick={() => navigate('/')} style={{
             padding: '10px 18px',
