@@ -130,9 +130,26 @@ grant execute on function public.update_own_question(bigint, uuid, text) to anon
 revoke all on function public.delete_own_question(bigint, uuid) from public;
 grant execute on function public.delete_own_question(bigint, uuid) to anon, authenticated;
 
--- Public can submit adoption applications (write-only)
+-- Public can submit adoption applications (write-only).
+-- Field-length checks below are a cheap anti-spam guard since the form is
+-- exposed to the open internet via the anon key. Adjust thresholds to taste.
 drop policy if exists "public submit adoptions" on public.adoptions;
-create policy "public submit adoptions" on public.adoptions    for insert with check (true);
+create policy "public submit adoptions" on public.adoptions
+  for insert with check (
+    char_length(coalesce(full_name, ''))          between 2  and 120
+    and char_length(coalesce(phone, ''))          between 5  and 40
+    and char_length(coalesce(email, ''))          <= 200
+    and char_length(coalesce(animal_experience, '')) <= 1000
+    and char_length(coalesce(living_environment, '')) <= 1000
+  );
+
+-- Same anti-spam guard on questions: stop multi-megabyte payloads.
+drop policy if exists "public insert questions" on public.questions;
+create policy "public insert questions" on public.questions
+  for insert with check (
+    char_length(coalesce(message, '')) between 1 and 2000
+    and char_length(coalesce(author, '')) <= 80
+  );
 
 -- Add structured profile fields on existing databases
 alter table public.animals add column if not exists arrival_story text;

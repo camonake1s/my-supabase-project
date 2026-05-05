@@ -449,24 +449,6 @@ export default function AnimalPage() {
       <main className="page-content-wide" style={{ paddingTop: 'var(--space-section-y)', paddingBottom: 'var(--space-section-y)', maxWidth: 'min(1200px, calc(100vw - 2rem))' }}>
         <div className="animal-profile-layout">
           <div className="animal-profile-top">
-            <div className="animal-side-column">
-              <aside className="animal-requirements-panel" aria-labelledby="adoption-req-heading">
-                <h2 id="adoption-req-heading" style={{ fontSize: '1.15rem', color: DARK, marginBottom: '0.75rem' }}>
-                  Adoption Requirements
-                </h2>
-                <p style={{ fontSize: '0.95rem', color: 'var(--color-muted)', marginBottom: '1rem', lineHeight: 1.55 }}>
-                  Please read carefully before you apply - this keeps adoptions safe and transparent for you and for the
-                  shelter.
-                </p>
-                <ul style={{ paddingLeft: '1.25rem', color: '#3a3a3a', lineHeight: 1.75, fontSize: '1rem' }}>
-                  <li>Review all information about the animal carefully.</li>
-                  <li>Provide honest details about your living environment and schedule.</li>
-                  <li>Be prepared for a conversation with the shelter team before adoption is confirmed.</li>
-                </ul>
-              </aside>
-              {questionsSection}
-            </div>
-
             <div className="animal-main-column">
               <article className="animal-card">
             {animal.photo_url ? (
@@ -555,6 +537,10 @@ export default function AnimalPage() {
               >
                 Go to Adoption Application →
               </button>
+            </div>
+
+            <div className="animal-side-column">
+              {questionsSection}
             </div>
           </div>
         </div>

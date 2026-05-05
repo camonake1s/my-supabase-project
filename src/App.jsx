@@ -22,8 +22,74 @@ const ABOUT_PROJECT_PHOTO = '/about/project-mockup.jpg'
 
 const HERO_IMAGE_URL = 'https://i.pinimg.com/736x/16/bd/d9/16bdd92a5093b8166b4b31f322536220.jpg'
 
-const NEWS_ARTICLE_URL =
-  'https://informburo.kz/stati/priiut-nadezdy-kak-bliz-almaty-spasaiut-tex-kogo-odnazdy-predali-liudi'
+const NEWS_POSTS = [
+  {
+    source: 'informburo.kz',
+    sourceColor: '#1A5C52',
+    url: 'https://informburo.kz/stati/priiut-nadezdy-kak-bliz-almaty-spasaiut-tex-kogo-odnazdy-predali-liudi',
+    title: 'How a shelter near Almaty rescues abandoned animals',
+    summary:
+      '350+ dogs and 40 cats. Founded by Yulia & Sergey Snegirev. Every animal gets treatment, rehabilitation, and a safe path to a new family.',
+  },
+  {
+    source: 'Instagram',
+    sourceColor: '#C8773A',
+    url: 'https://www.instagram.com/p/DXhIRIrCCIP/',
+    title: 'Latest rescue update from the shelter',
+    summary:
+      'Daily life at Comes - new arrivals, recoveries, and animals ready to meet their new families. Tap to see the latest post.',
+  },
+  {
+    source: 'Instagram',
+    sourceColor: '#C8773A',
+    url: 'https://www.instagram.com/reel/DUCxYHuDfaz/',
+    title: 'A day in the life of a Comes volunteer',
+    summary:
+      'Behind the scenes - how the team feeds, treats and houses 400+ animals every single day. Short video on Instagram.',
+  },
+  {
+    source: 'Instagram',
+    sourceColor: '#C8773A',
+    url: 'https://www.instagram.com/reel/DRrT1ZyjDaf/',
+    title: 'Rescued, treated, ready for a home',
+    summary:
+      'Watch one of our recent recoveries find a forever family. New animals arrive in critical condition - your support makes their second chance possible.',
+  },
+]
+
+function InstagramIcon() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M19.05 4.91A9.86 9.86 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01ZM12.04 20.13h-.01a8.21 8.21 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.23-8.23 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.69 8.21-8.23 8.21Zm4.51-6.16c-.25-.13-1.46-.72-1.69-.8-.23-.08-.39-.13-.56.13-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06a6.78 6.78 0 0 1-1.99-1.23 7.5 7.5 0 0 1-1.38-1.72c-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.14.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42l-.48-.01c-.17 0-.45.06-.68.32-.23.25-.89.87-.89 2.13 0 1.26.92 2.47 1.05 2.64.13.17 1.81 2.77 4.39 3.88.61.26 1.09.42 1.46.54.61.19 1.17.16 1.61.1.49-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.3Z" />
+    </svg>
+  )
+}
+
+function iconLinkStyle(color) {
+  return {
+    width: '56px',
+    height: '56px',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: `2px solid ${color}`,
+    borderRadius: '14px',
+    background: 'white',
+    color,
+    cursor: 'pointer',
+    textDecoration: 'none',
+  }
+}
 
 function statusLabel(s) {
   if (s === 'treatment') return { text: 'Under Treatment', bg: '#FFF3E0', color: '#E65100' }
@@ -36,6 +102,7 @@ export default function App() {
   const petsRef = useRef(null)
   const donateRef = useRef(null)
   const aboutRef = useRef(null)
+  const newsRef = useRef(null)
 
   const [animals, setAnimals] = useState([])
   const [typeFilter, setTypeFilter] = useState('all')
@@ -118,160 +185,95 @@ export default function App() {
           display: 'flex',
           flexWrap: 'wrap',
           alignItems: 'stretch',
-          background: NAV_BG,
-          minHeight: 'clamp(420px, 56vw, 620px)',
+          background: BG,
+          minHeight: 'clamp(420px, 56vw, 580px)',
         }}
       >
         <div
           style={{
             flex: '1 1 360px',
             minWidth: '300px',
-            padding: 'clamp(2.25rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem)',
+            padding: 'clamp(2.25rem, 5vw, 3.75rem) clamp(1.5rem, 4vw, 3rem)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            color: NAV_FG,
+            color: DARK,
           }}
         >
-          <div style={{ maxWidth: '480px', marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
-            <h1
+          <div style={{ maxWidth: '520px', marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
+            <div
               style={{
-                fontSize: 'clamp(2rem, 5vw, 2.5rem)',
+                color: ORANGE,
+                fontSize: '0.85rem',
                 fontWeight: 700,
-                color: '#FFFFFF',
-                lineHeight: 1.1,
-                marginBottom: '0.85rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                marginBottom: '1rem',
               }}
             >
-              “Comes” Animal Shelter
+              “Comes” Animal Shelter · Kainar
+            </div>
+            <h1
+              style={{
+                fontSize: 'clamp(2.1rem, 5vw, 3rem)',
+                fontWeight: 700,
+                color: DARK,
+                lineHeight: 1.1,
+                marginBottom: '1rem',
+              }}
+            >
+              Adopt a friend who has been waiting for you
             </h1>
             <p
               style={{
-                fontSize: '1.1rem',
-                fontWeight: 500,
-                color: 'rgba(255, 255, 255, 0.9)',
-                marginBottom: '1.5rem',
-              }}
-            >
-              📍 Kainar Village, Almaty Region
-            </p>
-            <div
-              style={{
-                color: ACCENT,
-                fontSize: '0.9rem',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
+                fontSize: '1.05rem',
+                fontWeight: 400,
+                color: 'var(--color-muted)',
+                lineHeight: 1.55,
                 marginBottom: '2rem',
+                maxWidth: '440px',
               }}
             >
-              Founded by Yulia Snegireva
+              Run by Yulia Snegireva and a small team in Kainar village near Almaty - home to over 350 dogs and 40 cats
+              rescued, treated and ready for a new family.
+            </p>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+              <button
+                type="button"
+                onClick={() => scrollTo(petsRef)}
+                style={{
+                  padding: '14px 28px',
+                  background: ORANGE,
+                  color: '#FFFFFF',
+                  border: 'none',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                  fontSize: '1rem',
+                  fontWeight: 700,
+                  fontFamily: 'inherit',
+                }}
+              >
+                Meet our pets
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollTo(donateRef)}
+                style={{
+                  padding: '14px 22px',
+                  background: 'transparent',
+                  color: DARK,
+                  border: 'none',
+                  borderBottom: `2px solid ${DARK}`,
+                  borderRadius: 0,
+                  cursor: 'pointer',
+                  fontSize: '0.98rem',
+                  fontWeight: 600,
+                  fontFamily: 'inherit',
+                }}
+              >
+                Support the shelter →
+              </button>
             </div>
-            <button
-              type="button"
-              onClick={() => scrollTo(donateRef)}
-              style={{
-                padding: '14px 30px',
-                background: ACCENT,
-                color: '#1A1A1A',
-                border: 'none',
-                borderRadius: '10px',
-                cursor: 'pointer',
-                fontSize: '1rem',
-                fontWeight: 700,
-                boxShadow: '0 6px 18px rgba(255,159,28,0.4)',
-                fontFamily: 'inherit',
-              }}
-            >
-              Support the Shelter
-            </button>
-
-            <article
-              style={{
-                background: 'white',
-                border: '1px solid rgba(0,0,0,0.06)',
-                borderRadius: '14px',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
-                overflow: 'hidden',
-                marginTop: '2rem',
-                width: '100%',
-              }}
-            >
-              <header
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  padding: '14px 18px',
-                }}
-              >
-                <div
-                  aria-hidden
-                  style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: '50%',
-                    background: '#1A5C52',
-                    color: 'white',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontWeight: 700,
-                    fontSize: '1.15rem',
-                    flexShrink: 0,
-                  }}
-                >
-                  📰
-                </div>
-                <div style={{ minWidth: 0 }}>
-                  <div style={{ fontWeight: 700, fontSize: '0.95rem', color: DARK }}>informburo.kz</div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--color-muted)' }}>
-                    News · Featured story
-                  </div>
-                </div>
-              </header>
-
-              <div style={{ padding: '4px 18px 16px' }}>
-                <h3
-                  style={{
-                    fontSize: '1.18rem',
-                    color: DARK,
-                    lineHeight: 1.3,
-                    marginBottom: '0.55rem',
-                  }}
-                >
-                  How a shelter near Almaty rescues abandoned animals
-                </h3>
-                <p style={{ fontSize: '0.97rem', color: 'var(--color-muted)', lineHeight: 1.6 }}>
-                  400+ dogs and cats. Founded in 2018 by Yulia &amp; Sergey Snegirev. Every animal gets
-                  treatment, rehabilitation, and a safe path to a new family.
-                </p>
-              </div>
-
-              <footer
-                style={{
-                  padding: '14px 18px',
-                  borderTop: '1px solid rgba(0,0,0,0.06)',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  gap: '8px',
-                }}
-              >
-                <span style={{ fontSize: '0.85rem', color: 'var(--color-muted)' }}>
-                  Source: informburo.kz
-                </span>
-                <a
-                  href={NEWS_ARTICLE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: ORANGE, fontWeight: 600, fontSize: '0.95rem' }}
-                >
-                  Read full story on informburo.kz →
-                </a>
-              </footer>
-            </article>
           </div>
         </div>
 
@@ -369,7 +371,21 @@ export default function App() {
         className="page-content-wide scroll-target-section"
         style={{ paddingBottom: 'var(--space-section-y)' }}
       >
-        <h2 style={{ textAlign: 'center', fontSize: '1.45rem', marginBottom: '1.35rem', color: DARK }}>Our pets</h2>
+        <h2 style={{ textAlign: 'center', fontSize: 'clamp(1.5rem, 3vw, 1.85rem)', marginBottom: '0.6rem', color: DARK }}>
+          Our pets
+        </h2>
+        <p
+          style={{
+            textAlign: 'center',
+            color: 'var(--color-muted)',
+            fontSize: '1.02rem',
+            lineHeight: 1.55,
+            maxWidth: '560px',
+            margin: '0 auto 1.75rem',
+          }}
+        >
+          These pets are looking for someone like you. Take a moment - your new family member might be one of them.
+        </p>
 
         <div
           style={{
@@ -507,41 +523,113 @@ export default function App() {
           </div>
 
           <div className="charity-actions">
-            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
-              <button
-                type="button"
-                style={{
-                  padding: '11px 24px',
-                  border: `2px solid ${DARK}`,
-                  background: 'white',
-                  borderRadius: '10px',
-                  cursor: 'pointer',
-                  color: DARK,
-                  fontWeight: 600,
-                  fontSize: '0.95rem',
-                }}
-              >
-                Instagram
-              </button>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Comes shelter on Instagram"
+              title="Instagram"
+              style={iconLinkStyle(DARK)}
+            >
+              <InstagramIcon />
             </a>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              <button
-                type="button"
-                style={{
-                  padding: '11px 24px',
-                  border: `2px solid ${DARK}`,
-                  background: 'white',
-                  borderRadius: '10px',
-                  cursor: 'pointer',
-                  color: DARK,
-                  fontWeight: 600,
-                  fontSize: '0.95rem',
-                }}
-              >
-                WhatsApp
-              </button>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Message Comes shelter on WhatsApp"
+              title="WhatsApp"
+              style={iconLinkStyle(DARK)}
+            >
+              <WhatsAppIcon />
             </a>
           </div>
+        </div>
+      </section>
+
+      <section
+        ref={newsRef}
+        id="news"
+        className="page-content-wide scroll-target-section"
+        style={{ paddingTop: 'var(--space-section-y)', paddingBottom: 'var(--space-section-y)' }}
+      >
+        <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 1.85rem)', marginBottom: '0.6rem', color: DARK }}>
+          News from the shelter
+        </h2>
+        <p style={{ color: 'var(--color-muted)', marginBottom: '1.75rem' }}>
+          Latest updates from the press and our Instagram. Tap any card to read the full story.
+        </p>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1.1rem',
+          }}
+        >
+          {NEWS_POSTS.map(post => (
+            <a
+              key={post.url}
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'block',
+                background: 'white',
+                border: '1px solid rgba(0,0,0,0.06)',
+                borderRadius: '14px',
+                overflow: 'hidden',
+                textDecoration: 'none',
+                color: 'inherit',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+                boxShadow: '0 1px 8px rgba(0,0,0,0.06)',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-3px)'
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = '0 1px 8px rgba(0,0,0,0.06)'
+              }}
+            >
+              <div style={{ padding: '16px 18px 6px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span
+                  style={{
+                    background: post.sourceColor,
+                    color: 'white',
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.04em',
+                    textTransform: 'uppercase',
+                    padding: '3px 9px',
+                    borderRadius: '999px',
+                  }}
+                >
+                  {post.source}
+                </span>
+              </div>
+              <div style={{ padding: '6px 18px 14px' }}>
+                <h3 style={{ fontSize: '1.05rem', color: DARK, lineHeight: 1.35, marginBottom: '0.45rem' }}>
+                  {post.title}
+                </h3>
+                <p style={{ fontSize: '0.93rem', color: 'var(--color-muted)', lineHeight: 1.55 }}>
+                  {post.summary}
+                </p>
+              </div>
+              <div
+                style={{
+                  padding: '12px 18px',
+                  borderTop: '1px solid rgba(0,0,0,0.06)',
+                  fontSize: '0.88rem',
+                  color: ORANGE,
+                  fontWeight: 600,
+                }}
+              >
+                Read full story →
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

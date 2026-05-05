@@ -5,7 +5,7 @@ import SiteFooter from './SiteFooter.jsx'
 
 const BG = '#FAF6F0'
 const ORANGE = '#C8773A'
-const DARK = '#2D2D2D'
+const DARK = '#1f1f1f'
 const NAV_BG = '#2B2724'
 const NAV_FG = '#FAF6F0'
 
@@ -277,6 +277,34 @@ export default function ApplyPage() {
                   />
                 </Field>
 
+                {/* Adoption Requirements - read before consent */}
+                <aside
+                  aria-labelledby="apply-req-heading"
+                  style={{
+                    background: 'linear-gradient(165deg, #f4ebe0 0%, #ede4d8 100%)',
+                    border: '1px solid rgba(200, 119, 58, 0.45)',
+                    borderRadius: '12px',
+                    padding: '16px 18px',
+                    marginTop: '8px',
+                  }}
+                >
+                  <h3
+                    id="apply-req-heading"
+                    style={{ fontSize: '1rem', color: DARK, marginBottom: '0.4rem' }}
+                  >
+                    Adoption Requirements
+                  </h3>
+                  <p style={{ fontSize: '0.85rem', color: 'var(--color-muted)', marginBottom: '0.6rem', lineHeight: 1.5 }}>
+                    Please read carefully before you confirm - this keeps adoptions safe and transparent for you and for
+                    the shelter.
+                  </p>
+                  <ul style={{ paddingLeft: '1.1rem', color: '#3a3a3a', lineHeight: 1.65, fontSize: '0.88rem' }}>
+                    <li>Review all information about the animal carefully.</li>
+                    <li>Provide honest details about your living environment and schedule.</li>
+                    <li>Be prepared for a conversation with the shelter team before adoption is confirmed.</li>
+                  </ul>
+                </aside>
+
                 {/* Consent - required before submission */}
                 <div>
                   <label style={{
@@ -292,8 +320,8 @@ export default function ApplyPage() {
                       onChange={e => update('consent_given', e.target.checked)}
                     />
                     <span>
-                      I agree to send my data to the “Comes” shelter team so they can contact me about
-                      this adoption request.
+                      I have read the adoption requirements above and agree to send my data to the “Comes” shelter team
+                      so they can contact me about this adoption request.
                     </span>
                   </label>
                   {fieldErrors.consent_given && (
