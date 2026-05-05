@@ -663,6 +663,15 @@ export default function App() {
             >
               <WhatsAppIcon />
             </a>
+            <span
+              style={{
+                fontSize: '0.95rem',
+                color: '#2d4a44',
+                fontStyle: 'italic',
+              }}
+            >
+              The shelter is open for interaction.
+            </span>
           </div>
         </div>
       </section>
