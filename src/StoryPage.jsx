@@ -138,8 +138,7 @@ export default function StoryPage() {
             marginBottom: '2rem',
           }}
         >
-          How two siblings turned a private plot of land in Kainar into a refuge for the animals other
-          shelters cannot take in.
+          How two siblings turned a private plot of land in Kainar into a refuge for the animals.
         </p>
 
         <img
@@ -186,7 +185,7 @@ export default function StoryPage() {
           two siblings who decided that the animals nobody else would help still deserved a chance.
         </StoryParagraph>
 
-        <StoryHeading>The animals we take in</StoryHeading>
+        <StoryHeading>Animals our shelter accepts</StoryHeading>
         <StoryParagraph>
           We focus on the hardest cases: animals hit by vehicles on the street, victims of cruelty, severely sick
           or injured strays. These are the animals that would otherwise have no prospect of survival or recovery.
@@ -200,20 +199,19 @@ export default function StoryPage() {
         <StoryHeading>From street to home</StoryHeading>
         <ol style={{ paddingLeft: '1.25rem', color: '#3d3d3d', lineHeight: 1.7, fontSize: '1.05rem' }}>
           <li style={{ marginBottom: '0.5rem' }}>
-            <strong>Rescue.</strong> A witness reports an injured animal, or the team finds one directly. A video
-            of the case goes up on Instagram and Facebook with a call for treatment funds.
+            <strong>Rescue:</strong> We respond to reports of injured animals or find them during field missions.
           </li>
           <li style={{ marginBottom: '0.5rem' }}>
-            <strong>Treatment.</strong> The animal is taken to one of several partner clinics in Almaty for
-            surgery, medication and stabilisation. Updates are posted throughout the stay.
+            <strong>Treatment:</strong> Animals are treated at partner clinics in Almaty for surgery and
+            stabilization.
           </li>
           <li style={{ marginBottom: '0.5rem' }}>
-            <strong>Rehabilitation.</strong> Once discharged, the animal returns with Yulia and Sergei to Kainar
-            for at-home rehab and continued care.
+            <strong>Rehabilitation:</strong> Post-treatment, animals recover under professional care at our
+            shelter in Kainar.
           </li>
           <li>
-            <strong>Adoption.</strong> When the animal is ready, a new post goes out. Sometimes the right family
-            comes forward straight from the clinic, before the animal even reaches the shelter.
+            <strong>Adoption:</strong> We facilitate the transition to permanent, verified homes once the animal
+            is fully recovered.
           </li>
         </ol>
 
