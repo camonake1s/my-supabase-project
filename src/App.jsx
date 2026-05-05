@@ -178,7 +178,7 @@ export default function App() {
             About the Shelter
           </button>
           <button type="button" onClick={() => scrollTo(aboutRef)} style={navBtn}>
-            About this Site
+            Who are PlayFul Paws?
           </button>
         </nav>
       </header>
@@ -663,7 +663,7 @@ export default function App() {
         style={{ paddingTop: 'var(--space-section-y)', paddingBottom: 'var(--space-section-y)' }}
       >
         <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 1.85rem)', marginBottom: '1.25rem', color: DARK }}>
-          About Us - <span style={{ color: ORANGE }}>PlayFul Paws</span>
+          Who are <span style={{ color: ORANGE }}>PlayFul Paws</span>?
         </h2>
 
         <div style={{ fontSize: '1.08rem', color: '#3d3d3d', lineHeight: 1.7, maxWidth: 'none' }}>
@@ -691,6 +691,11 @@ export default function App() {
           <p style={{ marginTop: '1.1rem' }}>
             We believe that small improvements in access and information can lead to real change - more adoptions, less time
             on the streets, and better lives for animals.
+          </p>
+          <p style={{ marginTop: '1.1rem', fontStyle: 'italic', color: 'var(--color-muted)', fontSize: '0.98rem' }}>
+            We built this website as part of the discipline{' '}
+            <strong style={{ color: DARK, fontStyle: 'normal' }}>Foundations of Computational Thinking</strong>{' '}
+            (Foundation Year 2025-2026).
           </p>
         </div>
 
