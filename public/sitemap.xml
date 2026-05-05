@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  PlayFul Paws - Comes Animal Shelter sitemap
-  IMPORTANT: replace YOUR-DOMAIN below with your real Vercel domain
-  (for example playful-paws.vercel.app) before relying on Google for indexing.
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://YOUR-DOMAIN/</loc>
+    <loc>https://invisionueducationplayful-paws.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN/animal/1</loc>
+    <loc>https://invisionueducationplayful-paws.vercel.app/animal/1</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN/animal/2</loc>
+    <loc>https://invisionueducationplayful-paws.vercel.app/animal/2</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN/animal/3</loc>
+    <loc>https://invisionueducationplayful-paws.vercel.app/animal/3</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN/animal/4</loc>
+    <loc>https://invisionueducationplayful-paws.vercel.app/animal/4</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

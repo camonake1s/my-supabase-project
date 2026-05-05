@@ -8,7 +8,7 @@ const BG = '#FAF6F0'
 const ORANGE = '#C8773A'
 const ACCENT = '#FF9F1C'
 const DARK = '#1f1f1f'
-const NAV_BG = '#2B2724'
+const NAV_BG = '#1A5C52'
 const NAV_FG = '#FAF6F0'
 
 const INSTAGRAM_URL = 'https://www.instagram.com/comes.kz.almaty/'
@@ -222,7 +222,7 @@ export default function App() {
                 marginBottom: '1rem',
               }}
             >
-              Adopt a friend who has been waiting for you
+              Your new best friend is in Kainar, near Almaty.
             </h1>
             <p
               style={{
@@ -234,8 +234,7 @@ export default function App() {
                 maxWidth: '440px',
               }}
             >
-              Run by Yulia Snegireva and a small team in Kainar village near Almaty - home to over 350 dogs and 40 cats
-              rescued, treated and ready for a new family.
+              Join the Comes Shelter family. 17 years of rescues, one goal: a home for every pet.
             </p>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
               <button

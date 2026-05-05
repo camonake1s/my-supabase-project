@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Replace YOUR-DOMAIN with your real Vercel domain (e.g. playful-paws.vercel.app)
-Sitemap: https://YOUR-DOMAIN/sitemap.xml
+Sitemap: https://invisionueducationplayful-paws.vercel.app/sitemap.xml

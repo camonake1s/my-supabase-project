@@ -6,7 +6,7 @@ import SiteFooter from './SiteFooter.jsx'
 const BG = '#FAF6F0'
 const ORANGE = '#C8773A'
 const DARK = '#1f1f1f'
-const NAV_BG = '#2B2724'
+const NAV_BG = '#1A5C52'
 const NAV_FG = '#FAF6F0'
 
 const inputStyle = {
