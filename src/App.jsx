@@ -88,14 +88,15 @@ const NEWS_POSTS = [
     sourceColor: '#C8773A',
     url: 'https://www.instagram.com/reel/DVgIThvjQ3H/',
     title: 'First steps at the shelter',
-    summary: 'A brave pup returning from the clinic and getting to know their new home and friends.',
+    summary:
+      'A brave pup returning from the clinic and getting to know their new home and friends.',
   },
   {
     source: 'Instagram',
     sourceColor: '#C8773A',
     url: 'https://www.instagram.com/reel/DVlxQ28DdqJ/',
     title: 'Preparing the cattery',
-    summary: 'Showing how we care for our cats and set up their cozy living spaces.',
+    summary: 'How we care for our cats and set up their cozy living spaces.',
   },
   {
     source: 'Instagram',
@@ -217,6 +218,132 @@ function OtherWaysToDonate() {
       <p className="other-donate-holder">
         Cardholder name: <strong>Snegiryova Yuliya</strong> (founder of Comes shelter)
       </p>
+    </div>
+  )
+}
+
+function NewsCarousel() {
+  const scrollerRef = useRef(null)
+  const [canLeft, setCanLeft] = useState(false)
+  const [canRight, setCanRight] = useState(true)
+
+  useEffect(() => {
+    const el = scrollerRef.current
+    if (!el) return
+    const update = () => {
+      setCanLeft(el.scrollLeft > 4)
+      setCanRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4)
+    }
+    update()
+    el.addEventListener('scroll', update, { passive: true })
+    const ro = new ResizeObserver(update)
+    ro.observe(el)
+    return () => {
+      el.removeEventListener('scroll', update)
+      ro.disconnect()
+    }
+  }, [])
+
+  function scrollByStep(direction) {
+    const el = scrollerRef.current
+    if (!el) return
+    const card = el.querySelector('.news-card')
+    const step = card ? card.offsetWidth + 16 : 296
+    el.scrollBy({ left: direction * step, behavior: 'smooth' })
+  }
+
+  return (
+    <div className="news-carousel">
+      <button
+        type="button"
+        className="news-arrow news-arrow-left"
+        onClick={() => scrollByStep(-1)}
+        aria-label="Show previous news cards"
+        disabled={!canLeft}
+      >
+        ‹
+      </button>
+
+      <div className="news-scroller" ref={scrollerRef}>
+        {NEWS_POSTS.map(post => {
+          const cta = post.source === 'Instagram' ? 'Watch the full video →' : 'Read full story →'
+          return (
+            <a
+              key={post.url}
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="news-card"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                background: 'white',
+                border: '1px solid rgba(0,0,0,0.06)',
+                borderRadius: '14px',
+                overflow: 'hidden',
+                textDecoration: 'none',
+                color: 'inherit',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+                boxShadow: '0 1px 8px rgba(0,0,0,0.06)',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-3px)'
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = '0 1px 8px rgba(0,0,0,0.06)'
+              }}
+            >
+              <div style={{ padding: '16px 18px 6px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span
+                  style={{
+                    background: post.sourceColor,
+                    color: 'white',
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.04em',
+                    textTransform: 'uppercase',
+                    padding: '3px 9px',
+                    borderRadius: '999px',
+                  }}
+                >
+                  {post.source}
+                </span>
+              </div>
+              <div style={{ padding: '6px 18px 14px', flex: 1 }}>
+                <h3 style={{ fontSize: '1.05rem', color: DARK, lineHeight: 1.35, marginBottom: '0.45rem' }}>
+                  {post.title}
+                </h3>
+                <p style={{ fontSize: '0.93rem', color: 'var(--color-muted)', lineHeight: 1.55, margin: 0 }}>
+                  {post.summary}
+                </p>
+              </div>
+              <div
+                style={{
+                  padding: '12px 18px',
+                  borderTop: '1px solid rgba(0,0,0,0.06)',
+                  fontSize: '0.88rem',
+                  color: ORANGE,
+                  fontWeight: 600,
+                }}
+              >
+                {cta}
+              </div>
+            </a>
+          )
+        })}
+      </div>
+
+      <button
+        type="button"
+        className="news-arrow news-arrow-right"
+        onClick={() => scrollByStep(1)}
+        aria-label="Show next news cards"
+        disabled={!canRight}
+      >
+        ›
+      </button>
     </div>
   )
 }
@@ -718,80 +845,11 @@ export default function App() {
           News from the shelter
         </h2>
         <p style={{ color: 'var(--color-muted)', marginBottom: '1.75rem' }}>
-          Latest updates from the press and our Instagram. Tap any card to read the full story.
+          One press feature and short Instagram episodes from daily life at Comes. Use the arrows
+          (or swipe on mobile) to browse, then tap a card to open it.
         </p>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '1.1rem',
-          }}
-        >
-          {NEWS_POSTS.map(post => (
-            <a
-              key={post.url}
-              href={post.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'block',
-                background: 'white',
-                border: '1px solid rgba(0,0,0,0.06)',
-                borderRadius: '14px',
-                overflow: 'hidden',
-                textDecoration: 'none',
-                color: 'inherit',
-                transition: 'transform 0.2s, box-shadow 0.2s',
-                boxShadow: '0 1px 8px rgba(0,0,0,0.06)',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-3px)'
-                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.boxShadow = '0 1px 8px rgba(0,0,0,0.06)'
-              }}
-            >
-              <div style={{ padding: '16px 18px 6px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span
-                  style={{
-                    background: post.sourceColor,
-                    color: 'white',
-                    fontSize: '0.72rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase',
-                    padding: '3px 9px',
-                    borderRadius: '999px',
-                  }}
-                >
-                  {post.source}
-                </span>
-              </div>
-              <div style={{ padding: '6px 18px 14px' }}>
-                <h3 style={{ fontSize: '1.05rem', color: DARK, lineHeight: 1.35, marginBottom: '0.45rem' }}>
-                  {post.title}
-                </h3>
-                <p style={{ fontSize: '0.93rem', color: 'var(--color-muted)', lineHeight: 1.55 }}>
-                  {post.summary}
-                </p>
-              </div>
-              <div
-                style={{
-                  padding: '12px 18px',
-                  borderTop: '1px solid rgba(0,0,0,0.06)',
-                  fontSize: '0.88rem',
-                  color: ORANGE,
-                  fontWeight: 600,
-                }}
-              >
-                Read full story →
-              </div>
-            </a>
-          ))}
-        </div>
+        <NewsCarousel />
       </section>
 
       <section
