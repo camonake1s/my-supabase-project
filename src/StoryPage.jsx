@@ -169,8 +169,6 @@ export default function StoryPage() {
           <Stat value="17+" label="Years of rescue" />
           <Stat value="350" label="Dogs" />
           <Stat value="40+" label="Cats" />
-          <Stat value="5-10" label="Rescues / month" />
-          <Stat value="50" label="Adoption inquiries / month" />
         </section>
 
         <StoryHeading>Who runs Comes</StoryHeading>
@@ -232,13 +230,37 @@ export default function StoryPage() {
             recovering only because the shelter's followers funded every step of her treatment, post by post,
             comment by comment. This is what Comes does on a daily basis.
           </p>
+          <a
+            href="https://www.instagram.com/reel/DWxo7xLxmgl/?igsh=MWI5aW03cW8wdThxZA=="
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              marginTop: '1rem',
+              padding: '8px 14px',
+              background: 'white',
+              color: ORANGE,
+              border: `1px solid ${ORANGE}`,
+              borderRadius: '999px',
+              fontSize: '0.9rem',
+              fontWeight: 600,
+              textDecoration: 'none',
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.5" y2="6.5" />
+            </svg>
+            Watch Viktoria's update on Instagram ↗
+          </a>
         </article>
 
-        <StoryHeading>Where to find us</StoryHeading>
+        <StoryHeading>Where to find our shelter</StoryHeading>
         <StoryParagraph>
           The shelter is located in the village of <strong>Kaynar</strong>, on the outskirts of Almaty, Kazakhstan.
-          Comes is officially registered as a <strong>public foundation</strong>, which gives it a legal basis to
-          accept charitable donations from the public.
         </StoryParagraph>
         <StoryParagraph>
           The two main partner clinics are inside Almaty itself - the team has cooperated with them for many
