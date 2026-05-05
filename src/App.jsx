@@ -171,7 +171,7 @@ export default function App() {
           PlayFul Paws
         </div>
         <nav style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
-          <button type="button" onClick={() => scrollTo(petsRef)} style={navBtn}>
+          <button type="button" onClick={() => navigate('/animals')} style={navBtn}>
             Find an Animal
           </button>
           <button type="button" onClick={() => scrollTo(aboutRef)} style={navBtn}>
@@ -493,6 +493,27 @@ export default function App() {
               No animals to show in this category yet.
             </p>
           )}
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: '1.75rem' }}>
+          <button
+            type="button"
+            onClick={() => navigate('/animals')}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: ORANGE,
+              fontWeight: 700,
+              fontSize: '1rem',
+              cursor: 'pointer',
+              padding: '8px 4px',
+              borderBottom: `2px solid ${ORANGE}`,
+              borderRadius: 0,
+              fontFamily: 'inherit',
+            }}
+          >
+            See the full catalog →
+          </button>
         </div>
       </section>
 
