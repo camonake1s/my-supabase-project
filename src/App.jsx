@@ -210,7 +210,7 @@ export default function App() {
                 marginBottom: '1rem',
               }}
             >
-              Your new best friend is in Kainar, near Almaty.
+              Your new <span style={{ color: ORANGE }}>best friend</span> is in Kainar, near Almaty.
             </h1>
             <p
               style={{
