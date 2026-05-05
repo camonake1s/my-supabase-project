@@ -213,8 +213,8 @@ export default function App() {
               Your new{' '}
               <span
                 style={{
-                  background: '#E8F5E9',
-                  padding: '0 0.25em',
+                  background: '#B7E4C7',
+                  padding: '0 8px',
                   borderRadius: '4px',
                   boxDecorationBreak: 'clone',
                   WebkitBoxDecorationBreak: 'clone',
