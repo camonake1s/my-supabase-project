@@ -175,10 +175,10 @@ export default function App() {
             Find an Animal
           </button>
           <button type="button" onClick={() => navigate('/story')} style={navBtn}>
-            Our Story
+            About the Shelter
           </button>
           <button type="button" onClick={() => scrollTo(aboutRef)} style={navBtn}>
-            Our Team
+            About this Site
           </button>
         </nav>
       </header>
@@ -662,20 +662,9 @@ export default function App() {
         className="page-content-wide scroll-target-section"
         style={{ paddingTop: 'var(--space-section-y)', paddingBottom: 'var(--space-section-y)' }}
       >
-        <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 1.85rem)', marginBottom: '0.5rem', color: DARK }}>
-          Our Team - <span style={{ color: ORANGE }}>PlayFul Paws</span>
+        <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 1.85rem)', marginBottom: '1.25rem', color: DARK }}>
+          About Us - <span style={{ color: ORANGE }}>PlayFul Paws</span>
         </h2>
-        <p style={{ fontSize: '1rem', color: 'var(--color-muted)', marginBottom: '1.5rem' }}>
-          The student team that designed and built this website. (For the story of the Comes shelter itself, see{' '}
-          <a
-            href="/story"
-            onClick={e => { e.preventDefault(); navigate('/story') }}
-            style={{ color: ORANGE, fontWeight: 600 }}
-          >
-            Our Story
-          </a>
-          .)
-        </p>
 
         <div style={{ fontSize: '1.08rem', color: '#3d3d3d', lineHeight: 1.7, maxWidth: 'none' }}>
           <p>

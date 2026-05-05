@@ -206,8 +206,8 @@ export default function StoryPage() {
             stabilization.
           </li>
           <li style={{ marginBottom: '0.5rem' }}>
-            <strong>Rehabilitation:</strong> Post-treatment, animals recover under professional care at our
-            shelter in Kainar.
+            <strong>Rehabilitation:</strong> Post-treatment, animals recover under professional care at our shelter
+            in Kainar.
           </li>
           <li>
             <strong>Adoption:</strong> We facilitate the transition to permanent, verified homes once the animal
