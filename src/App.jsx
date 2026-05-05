@@ -214,7 +214,7 @@ export default function App() {
               <span
                 style={{
                   background:
-                    'linear-gradient(180deg, transparent 0%, transparent 18%, #B9E5C9 18%, #B9E5C9 92%, transparent 92%)',
+                    'linear-gradient(180deg, transparent 0%, transparent 18%, #CFE3C9 18%, #CFE3C9 92%, transparent 92%)',
                   padding: '0 4px',
                   WebkitBoxDecorationBreak: 'clone',
                   boxDecorationBreak: 'clone',
