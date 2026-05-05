@@ -206,11 +206,24 @@ export default function App() {
                 fontSize: 'clamp(2.1rem, 5vw, 3rem)',
                 fontWeight: 700,
                 color: DARK,
-                lineHeight: 1.1,
+                lineHeight: 1.15,
                 marginBottom: '1rem',
               }}
             >
-              Your new <span style={{ color: ORANGE }}>best friend</span> is in Kainar, near Almaty.
+              Your new{' '}
+              <mark
+                style={{
+                  background: 'rgba(255, 159, 28, 0.28)',
+                  color: 'inherit',
+                  padding: '0 0.18em',
+                  borderRadius: '4px',
+                  boxDecorationBreak: 'clone',
+                  WebkitBoxDecorationBreak: 'clone',
+                }}
+              >
+                best friend
+              </mark>{' '}
+              is in Kainar, near Almaty.
             </h1>
             <p
               style={{
@@ -224,43 +237,24 @@ export default function App() {
             >
               Join the Comes Shelter family. 17 years of rescues, one goal: a home for every pet.
             </p>
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-              <button
-                type="button"
-                onClick={() => scrollTo(petsRef)}
-                style={{
-                  padding: '14px 28px',
-                  background: ORANGE,
-                  color: '#FFFFFF',
-                  border: 'none',
-                  borderRadius: '10px',
-                  cursor: 'pointer',
-                  fontSize: '1rem',
-                  fontWeight: 700,
-                  fontFamily: 'inherit',
-                }}
-              >
-                Meet our pets
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollTo(donateRef)}
-                style={{
-                  padding: '14px 22px',
-                  background: 'transparent',
-                  color: DARK,
-                  border: 'none',
-                  borderBottom: `2px solid ${DARK}`,
-                  borderRadius: 0,
-                  cursor: 'pointer',
-                  fontSize: '0.98rem',
-                  fontWeight: 600,
-                  fontFamily: 'inherit',
-                }}
-              >
-                Support the shelter →
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={() => navigate('/animals')}
+              style={{
+                padding: '14px 30px',
+                background: ORANGE,
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '10px',
+                cursor: 'pointer',
+                fontSize: '1rem',
+                fontWeight: 700,
+                fontFamily: 'inherit',
+                alignSelf: 'flex-start',
+              }}
+            >
+              Meet our pets
+            </button>
           </div>
         </div>
 
