@@ -72,26 +72,58 @@ const NEWS_POSTS = [
   {
     source: 'Instagram',
     sourceColor: '#C8773A',
-    url: 'https://www.instagram.com/p/DXhIRIrCCIP/',
-    title: 'Latest rescue update from the shelter',
-    summary:
-      'Daily life at Comes - new arrivals, recoveries, and animals ready to meet their new families. Tap to see the latest post.',
+    url: 'https://www.instagram.com/reel/DVTYCxOjRc4/',
+    title: 'A sleepy guard dog',
+    summary: 'A sweet video of our “watchdog” who fell fast asleep on the job.',
   },
   {
     source: 'Instagram',
     sourceColor: '#C8773A',
-    url: 'https://www.instagram.com/reel/DUCxYHuDfaz/',
-    title: 'A day in the life of a Comes volunteer',
-    summary:
-      'Behind the scenes - how the team feeds, treats and houses 400+ animals every single day. Short video on Instagram.',
+    url: 'https://www.instagram.com/reel/DVafFLzjeTF/',
+    title: 'A day in the life - cute moments',
+    summary: 'Behind the scenes of a typical, heartwarming day at the shelter.',
   },
   {
     source: 'Instagram',
     sourceColor: '#C8773A',
-    url: 'https://www.instagram.com/reel/DRrT1ZyjDaf/',
-    title: 'Rescued, treated, ready for a home',
-    summary:
-      'Watch one of our recent recoveries find a forever family. New animals arrive in critical condition - your support makes their second chance possible.',
+    url: 'https://www.instagram.com/reel/DVgIThvjQ3H/',
+    title: 'First steps at the shelter',
+    summary: 'A brave pup returning from the clinic and getting to know their new home and friends.',
+  },
+  {
+    source: 'Instagram',
+    sourceColor: '#C8773A',
+    url: 'https://www.instagram.com/reel/DVlxQ28DdqJ/',
+    title: 'Preparing the cattery',
+    summary: 'Showing how we care for our cats and set up their cozy living spaces.',
+  },
+  {
+    source: 'Instagram',
+    sourceColor: '#C8773A',
+    url: 'https://www.instagram.com/reel/DVsYd64je40/',
+    title: 'Cat mealtime magic',
+    summary: 'A precious look at our cats enjoying their favorite meals.',
+  },
+  {
+    source: 'Instagram',
+    sourceColor: '#C8773A',
+    url: 'https://www.instagram.com/reel/DVux-yJEVI-/',
+    title: 'Nap time for the kitties',
+    summary: 'Peaceful moments of our rescued cats relaxing and recharging.',
+  },
+  {
+    source: 'Instagram',
+    sourceColor: '#C8773A',
+    url: 'https://www.instagram.com/reel/DV3ZJ9IDZtL/',
+    title: 'Shelter renovations in progress',
+    summary: 'Building a better future - a look at the construction works at the shelter.',
+  },
+  {
+    source: 'Instagram',
+    sourceColor: '#C8773A',
+    url: 'https://www.instagram.com/reel/DWk6CNNxiCb/',
+    title: 'Dinner is served!',
+    summary: 'Our feline residents gathered together for their evening feast.',
   },
 ]
 
