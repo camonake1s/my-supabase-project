@@ -174,6 +174,9 @@ export default function App() {
           <button type="button" onClick={() => navigate('/animals')} style={navBtn}>
             Find an Animal
           </button>
+          <button type="button" onClick={() => navigate('/story')} style={navBtn}>
+            Our Story
+          </button>
           <button type="button" onClick={() => scrollTo(aboutRef)} style={navBtn}>
             About Us
           </button>

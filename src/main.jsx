@@ -7,6 +7,7 @@ import App from './App.jsx'
 import AnimalPage from './AnimalPage.jsx'
 import ApplyPage from './ApplyPage.jsx'
 import AnimalsCatalogPage from './AnimalsCatalogPage.jsx'
+import StoryPage from './StoryPage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/animals" element={<AnimalsCatalogPage />} />
+        <Route path="/story" element={<StoryPage />} />
         <Route path="/animal/:id" element={<AnimalPage />} />
         <Route path="/apply/:id" element={<ApplyPage />} />
       </Routes>
