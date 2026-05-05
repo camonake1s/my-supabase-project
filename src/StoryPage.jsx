@@ -179,8 +179,13 @@ export default function StoryPage() {
           co-organizer.
         </StoryParagraph>
         <StoryParagraph>
-          Comes is a two-person operation. There is no paid staff, no agency partnership, no large overhead - just
-          two siblings who decided that the animals nobody else would help still deserved a chance.
+          Comes Animal Shelter has no paid staff, no agency partnership - just two siblings who decided that the
+          animals deserved a chance.
+        </StoryParagraph>
+        <StoryParagraph>
+          While the core operation consists of only two people, they work closely with two main partner clinics
+          located within Almaty. Having cooperated with these medical professionals for many years, the founders
+          rely on their expertise to handle every surgery and emergency intake.
         </StoryParagraph>
 
         <StoryHeading>Animals our shelter accepts</StoryHeading>
@@ -261,10 +266,6 @@ export default function StoryPage() {
         <StoryHeading>Where to find our shelter</StoryHeading>
         <StoryParagraph>
           The shelter is located in the village of <strong>Kaynar</strong>, on the outskirts of Almaty, Kazakhstan.
-        </StoryParagraph>
-        <StoryParagraph>
-          The two main partner clinics are inside Almaty itself - the team has cooperated with them for many
-          years to handle every surgery and emergency intake.
         </StoryParagraph>
 
         <div
