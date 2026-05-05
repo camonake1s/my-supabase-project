@@ -206,18 +206,18 @@ export default function App() {
                 fontSize: 'clamp(2.1rem, 5vw, 3rem)',
                 fontWeight: 700,
                 color: DARK,
-                lineHeight: 1.1,
+                lineHeight: 1.15,
                 marginBottom: '1rem',
               }}
             >
               Your new{' '}
               <span
                 style={{
-                  background: '#B7E4C7',
-                  padding: '0 8px',
-                  borderRadius: '4px',
-                  boxDecorationBreak: 'clone',
+                  background:
+                    'linear-gradient(180deg, transparent 0%, transparent 18%, #B9E5C9 18%, #B9E5C9 92%, transparent 92%)',
+                  padding: '0 4px',
                   WebkitBoxDecorationBreak: 'clone',
+                  boxDecorationBreak: 'clone',
                 }}
               >
                 best friend
