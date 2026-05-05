@@ -22,6 +22,44 @@ const ABOUT_PROJECT_PHOTO = '/about/project-mockup.jpg'
 
 const HERO_IMAGE_URL = 'https://i.pinimg.com/736x/16/bd/d9/16bdd92a5093b8166b4b31f322536220.jpg'
 
+const OTHER_DONATION_METHODS = [
+  {
+    id: 'phone',
+    label: 'By phone (Kaspi / Halyk transfer)',
+    display: '+7 701 723 01 04',
+    copyText: '+77017230104',
+    mono: true,
+  },
+  {
+    id: 'freedom',
+    label: 'Freedom Bank (KZ)',
+    display: '5269 8800 6024 3250',
+    copyText: '5269880060243250',
+    mono: true,
+  },
+  {
+    id: 'forte',
+    label: 'Forte Bank (KZ)',
+    display: '5366 8520 0180 2744',
+    copyText: '5366852001802744',
+    mono: true,
+  },
+  {
+    id: 'vtb',
+    label: 'VTB (Russia)',
+    display: '2204 3602 0011 0896',
+    copyText: '2204360200110896',
+    mono: true,
+  },
+  {
+    id: 'paypal',
+    label: 'PayPal (international)',
+    display: 'paypal.me/YuliaSnegireva',
+    copyText: 'https://www.paypal.me/YuliaSnegireva',
+    href: 'https://www.paypal.me/YuliaSnegireva',
+  },
+]
+
 const NEWS_POSTS = [
   {
     source: 'informburo.kz',
@@ -95,6 +133,60 @@ function statusLabel(s) {
   if (s === 'treatment') return { text: 'Under Treatment', bg: '#FFF3E0', color: '#E65100' }
   if (s === 'urgent') return { text: 'Needs Urgent Support', bg: '#FFEBEE', color: '#C62828' }
   return { text: 'Looking for home', bg: '#E8F5E9', color: '#2E7D32' }
+}
+
+function OtherWaysToDonate() {
+  const [copiedId, setCopiedId] = useState(null)
+
+  async function handleCopy(id, text) {
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopiedId(id)
+      setTimeout(() => setCopiedId(prev => (prev === id ? null : prev)), 1800)
+    } catch (err) {
+      console.error('Clipboard write failed:', err)
+    }
+  }
+
+  return (
+    <div className="other-donate-block">
+      <h3>Other ways to donate</h3>
+      <ul className="other-donate-list">
+        {OTHER_DONATION_METHODS.map(m => (
+          <li key={m.id} className="other-donate-row">
+            <div className="other-donate-meta">
+              <span className="other-donate-label">{m.label}</span>
+              {m.href ? (
+                <a
+                  className="other-donate-value"
+                  href={m.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {m.display}
+                </a>
+              ) : (
+                <span className={`other-donate-value${m.mono ? ' mono' : ''}`}>
+                  {m.display}
+                </span>
+              )}
+            </div>
+            <button
+              type="button"
+              className="other-donate-copy"
+              onClick={() => handleCopy(m.id, m.copyText)}
+              aria-label={`Copy ${m.label}`}
+            >
+              {copiedId === m.id ? 'Copied' : 'Copy'}
+            </button>
+          </li>
+        ))}
+      </ul>
+      <p className="other-donate-holder">
+        Cardholder name: <strong>Snegiryova Yuliya</strong> (founder of Comes shelter)
+      </p>
+    </div>
+  )
 }
 
 export default function App() {
@@ -547,6 +639,8 @@ export default function App() {
               </p>
             </div>
           </div>
+
+          <OtherWaysToDonate />
 
           <div className="charity-actions">
             <a

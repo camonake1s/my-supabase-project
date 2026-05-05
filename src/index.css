@@ -246,6 +246,107 @@ a {
   align-items: center;
 }
 
+/* Other ways to donate (card numbers + copy buttons) */
+.other-donate-block {
+  background: #ffffff;
+  border: 1px solid rgba(26, 92, 82, 0.18);
+  border-radius: 14px;
+  padding: 1.2rem 1.4rem;
+}
+
+.other-donate-block h3 {
+  font-size: 1.05rem;
+  color: #134a42;
+  margin: 0 0 0.85rem;
+}
+
+.other-donate-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.other-donate-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  background: #f6f0e6;
+}
+
+.other-donate-meta {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+.other-donate-label {
+  font-size: 0.74rem;
+  color: #4a4a4a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.other-donate-value {
+  font-size: 1rem;
+  color: #1f1f1f;
+  word-break: break-all;
+  text-decoration: none;
+}
+
+.other-donate-value.mono {
+  font-family: 'Courier New', Consolas, monospace;
+  letter-spacing: 0.04em;
+}
+
+a.other-donate-value {
+  color: #1A5C52;
+  border-bottom: 1px solid rgba(26, 92, 82, 0.4);
+}
+
+.other-donate-copy {
+  flex-shrink: 0;
+  padding: 7px 16px;
+  background: #1A5C52;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  min-width: 76px;
+  transition: background 0.15s;
+}
+
+.other-donate-copy:hover {
+  background: #134a42;
+}
+
+.other-donate-holder {
+  margin: 0.9rem 0 0;
+  font-size: 0.88rem;
+  color: #4a4a4a;
+  text-align: right;
+  font-style: italic;
+}
+
+@media (max-width: 520px) {
+  .other-donate-row {
+    flex-wrap: wrap;
+  }
+  .other-donate-copy {
+    width: 100%;
+  }
+}
+
 /* Shared site footer */
 .site-footer {
   text-align: center;
