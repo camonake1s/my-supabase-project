@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview --host",
     "snapshot": "node scripts/snapshot-site.mjs",
-    "pitch-deck": "node scripts/build-pitch-deck.mjs"
+    "pitch-deck": "node scripts/build-pitch-deck.mjs",
+    "pitch-pptx": "node scripts/build-pitch-pptx.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
@@ -23,6 +24,7 @@
     "@vitejs/plugin-react": "^4.3.3",
     "pdf-lib": "^1.17.1",
     "playwright": "^1.59.1",
+    "pptxgenjs": "^4.0.1",
     "vite": "^5.4.10"
   }
 }
