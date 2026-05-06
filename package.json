@@ -9,7 +9,7 @@
     "preview": "vite preview --host",
     "snapshot": "node scripts/snapshot-site.mjs",
     "pitch-deck": "node scripts/build-pitch-deck.mjs",
-    "pitch-pptx": "node scripts/build-pitch-pptx.mjs"
+    "pitch-deck-pptx": "node scripts/build-pitch-deck-pptx.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
